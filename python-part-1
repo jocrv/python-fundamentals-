@@ -1,0 +1,467 @@
+RAD Programming / Lesson 1: Python Language
+Introduction
+Did you know that, compared to other more traditional languages, Python is quite new?
+
+It was launched in 1991 and, currently, it has been much talked about, due to some characteristics that distinguish it from the others.
+
+Among these, we highlight the ease of learning and the large number of libraries that this language supports as an extension of its core.
+
+This gives Python the power to play in a variety of applications – from web applications to those aimed at artificial intelligence and cognitive computing.
+
+The language has been discussed because large organizations – such as Google, Yahoo!, NASA, YouTube, etc. – use it for some purpose. Even desktop programs – like GIMP and Blender – use Python as their main language.
+
+With the use of frameworks – such as Django for the web –, we can also find numerous sites that rely on the language as a base and as a central platform.
+
+In this class, we are therefore going to study the Python language. You will find that learning is very simple.
+
+Whereas in other languages ​​we have to write three or four lines to display just one message on the screen, in Python, with just one command, this is possible. But it takes practice.
+
+In addition to studying through online classes, we invite you to follow the examples, test them, and expand on them to broaden your knowledge.
+In the introduction, we already commented a little about the Python language and about the companies that have been using it in their projects.
+
+This language is comprehensive and flexible. Usually, those who start using it end up leaving other languages ​​aside.
+
+Before we delve into its structure, let's tell a little about its history.
+
+
+
+
+Python was created by Dutchman Guido van Rossum in the late 1980s to extend the ABC language, used to interface an operating system called Amoeba. But it wasn't released until 1991.
+
+The name was chosen after an English comedy group called Monty Python.
+Python supports the paradigms of:
+
+Object Oriented Programming – Object Oriented Programming (OOP), which we will study later;
+Structured programming;
+Aspect Oriented Programming – Aspect Oriented Programming (AOP);
+Logic programming – through some extensions.
+
+
+
+DYNAMIC TYPING
+
+
+In Python, we don't need to declare variables to use them, as is done in Java, C#, etc. We will study the subject more in the next class.
+IT'S A FUNCTIONAL LANGUAGE
+Some elements of these languages ​​are used. One example is Lisp, whose functions – map(), reduce() and filter() – are implemented in Python to help programmers adapt Lisp's features.
+
+
+
+IT'S AN INTERPRETED LANGUAGE
+
+
+After installing the language on Windows – on Linux, for example, it is already installed along with the OS –, the program that executes its commands is an interpreter.
+
+Because of this, Python is an interpreted language, not a compiled one – when execution occurs by the operating system.
+Know more
+
+Python's main philosophy is summarized in a document, which presents 20 principles that influenced the design of the language.
+
+To get to know them, go to: PEP 20 – The Zen of Python.
+two versions
+
+When you download the Python interpreter for Windows, you will have to make a decision: should you use version 2 or 3?
+For those starting to study language, this can be a problem.
+
+Obviously, Python 2 was created first and has some features that aren't found in version 3.
+
+For those of you learning the language now, we recommend starting with Python 3, because over time some features that already exist in version 2 will no longer evolve, and version 3 offers new features.
+
+
+Many programs have already been written and developed based on Python 2. Therefore, you must be very careful when researching, reading and watching something related to this language. It's important to know which Python version is being used in your study sources.
+
+
+Some changes were implemented in the third version of the language, which made it incompatible with the second. Therefore, it is essential to develop the two in parallel.
+
+The Python website recommends that version 2 should only be used in a program that has not been migrated to version 3 or when it is necessary to maintain a legacy system.
+
+Want an example of a superficial difference between the two versions, but one that demonstrates how one is incompatible with the other?
+
+Much of what is expressed in Python 3 represents a method. But before, in Python 2, it wasn't like that. The simple command to show some text on the screen has been modified.
+
+Let's see:
+
+Python 2
+
+print “The answer is”, 2*2
+Python 3
+
+print ("The answer is", 2*2)
+
+
+Did you see the difference?
+
+
+
+Due to all of the above, in this course, we are going to adopt Python 3.
+Quickly describe the Python language.
+
+JACKET
+
+High-level, interpreted, interactive and object-oriented scripting language. Python was designed to be highly readable. Often uses keywords in English, when other languages ​​use punctuation and have fewer syntactic constructions than others.
+
+Research and introduce some of the main features of the Python language.
+Research and introduce some of the main features of the Python language.
+
+JACKET
+
+It supports functional and structured programming methods as well as OOP;
+It can be used as a scripting language;
+It is capable of being compiled to bytecodes for building large applications;
+Provides high-level dynamic data types;
+Supports dynamic type checking;
+Resists automatic garbage collection;
+It is easily integrated with C, C++, COM, ActiveX, CORBA and Java languages.
+first program
+
+Now that you've studied some Python language concepts, it's time to analyze a program. The idea is for you to get used to the code that we are going to develop going forward.
+
+Follow the environment installation and configuration script to follow the examples. This will help you memorize language commands and executions.
+Tip
+In our classes, we will use "Sublime" , but there are other IDE options, such as "Atom" , "Visual Studio Code" , "PyCharm" and "Brackets" . You can choose one of these or one of your own.
+
+Learn how to configure Sublime Text to run Python scripts.
+Learn how to configure Atom to run Python scripts.
+Learn how to configure Visual Studio Code to run Python scripts.
+Learn how to configure Brackets to run Python scripts. (Tutorial in English)
+So, let's go to the guidelines:
+
+1 Create file
+
+
+
+Create a plain text file and save it as first.py.
+
+
+
+
+2 Enter the code
+
+
+
+Enter the following code into the file:
+
+
+1 print("Hello world!")
+2 print("Hi again")
+3 print("I like typing.")
+4 print("It's really fun.")
+5 print('Cool!')
+6 print("Do you know Joan of Arc?")
+7 print('Watch "well" this example!')
+
+
+As you noticed, the program is very simple. Even so, let's show the result of its execution.
+
+With Python already installed and properly configured on your operating system, open a command console – in the case of Windows, a command prompt – and run python.py first.
+
+You will get the following result:
+Note that the “print” command shows something on the screen and one expression per line.
+
+
+Heads up
+
+It's important to be very careful when typing code, as Python really cares about spaces and tabs.
+
+In the next class, we'll see that code indentation tells Python to create a new block of commands, just like “{“ and “}” do in languages ​​like C, C++, C#, Java, PHP, JavaScript, and so on. This is quite different from what we are used to.
+
+Gradually you will notice that just the fact of correctly indenting the code allows its readability to be better.
+
+Now look at lines 1, 2, 3, and 4 and compare them to line 5. What's different?
+
+
+1 print("Hello world!")
+2 print("Hi again")
+3 print("I like typing.")
+4 print("It's really fun.")
+5 print('Cool!')
+6 print("Do you know Joan of Arc?")
+7 print('Watch "well" this example!')
+The quotation marks. Note that in lines 1, 2, 3, and 4, we use double quotes, and in line 5, single quotes.
+Python accepts both double quotes and single quotes to delimit strings.
+
+For example, in line 6, a string was started and ended with a double quote, and there is a single quote in the name Joana D’arc.
+
+The language could have ended the string in the "D" of Joan "D'arc", but it didn't: it recognized the end of the string at the end of the command when it closed it with double quotes.
+
+In line 7, we open and close the quotation marks in the word “well”. Again, Python understands when this feature starts and ends strings.
+
+program with error
+
+1 print("Hello world!")
+2 print("Hi again")
+3 print("I like typing.")
+4 print("It's really fun.")
+5 print('Cool!')
+6 print("Do you know Joan of Arc?")
+7 print('Watch "well" this example!)
+Where did the error originate? How can we solve this problem?
+
+0
+JACKET
+
+In this case, Python couldn't identify the end of the string at line 7, as we forgot to properly close it with the single quotes.
+
+The correct is:
+
+print ('Watch "well" this example!')
+
+
+The error screen is also useful, as the language tells us:
+C:\PROGRAMMINGIII>python first.py 
+File "firts.py", line 7
+print("Observe "well" this example!")
+SyntaxError: EOL while scanning string literal 
+C:\PROGRAMMINGIII>
+Also, we don't need to type the semicolon (“;”) at the end of each line, as Python understands that when we press “Enter”, the command must be executed.
+
+source code change
+
+Let's change just a little bit the source code of the model-example used so far:
+
+
+1 #print("Hello world!")
+2 print("Hi again")
+3 #print("I like to type.")
+4 print("It's really fun.")
+5 #print('Cool!')
+6 print("Do you know Joan of Arc?")
+7 print('Watch "well" this example!')
+
+
+Did you notice the difference?
+
+Notice lines 1, 3 and 5: they now have the “#” symbol at the beginning. Anything that comes after it will be a line comment.
+
+This feature is equivalent to the symbol “//” of the languages ​​C, C++, C#, Java, PHP, JavaScript etc.
+
+
+The result of running this program will be as follows:
+By now, you should be able to know what the next program will do. Let's go to it:
+
+
+1# One comment
+2 # Anything after the # is ignored by Python.
+3
+4 print("I could have code like that")# and the comment after it is ignored
+5
+6 # You can also use a comment to "disable" or comment out a piece of code:
+7 # print "This will not be executed."
+8
+9 print("This will be executed")
+
+Note line 4: the “#” symbol ignores everything that appears after that character.
+
+
+
+Continuing along the same line of reasoning, review the following example:
+
+
+1 print("#This will be printed")
+
+
+In this case, the file will be printed, as Python understands that “#” is inside a string and will display the sentence normally.
+
+But what if you need to comment out multiple lines? With the knowledge you have gained so far about the Python language, what would you do?
+>>>
+
+Just put the “#” character at the beginning of every line.
+
+In Python, there are no characters “/*” and “*/” to comment out several lines simultaneously, as in C, C++, C#, Java, JavaScript, PHP, etc.
+What is the best IDE for developing Python programs today?
+
+
+a) IDLE.
+
+
+b) Netbeans.
+
+
+c) Sublime Text.
+
+
+d) Atom.
+
+
+e) It depends on some personal or team usage criteria. TRUE 
+
+O nome do interpretador de comandos da Python é:
+
+
+a) IDLE.
+
+
+b) IDE
+
+
+c) Sublime Text. TRUE 
+
+
+d) Atom.
+
+
+e) Brackets
+
+The Python language is:
+
+I. Interpreted.
+II. Object-oriented.
+III. Interactive.
+Introduction
+All learning a language starts with the basic elements to create simple programs.
+
+For example, creating variables and inputting/outputting data on the screen are themes that run through several early chapters in programming books. Here, it will be no different.
+
+In this class, we'll base our study on simple, practical examples that will give you the foundation for creating increasingly complex programs. But it takes practice.
+
+It's like learning a new language: practicing reading and listening is very good, however, until you develop orality, you can't communicate in the foreign language, right?
+
+We will then start with simple programs, using basic commands. As in the previous lesson, we suggest that you run the scripts inside Sublime Text. However, if you're using another IDE, that's fine.
+
+Come on?
+Important informations
+
+To introduce the basic Python commands, let's use some clear and straightforward examples.
+
+If you already have some knowledge of programming logic and other languages, it will be easier to assimilate the content. But if you don't have it, don't worry, Python is a very popular and simple language to learn.
+
+Before we go any further, let's make some important observations.
+indentation
+In Python, indentation is critical. We'll learn more about the subject in the next class as we learn the decision commands in the next class.
+
+For now, remember: in all the programs you create, don't use spaces before commands, nor the TAB key. This will confuse Python about program blocks.
+Python doesn't use a semicolon or any other character to indicate the end of the line. When the programmer changes lines, the language understands that the command has ended.
+To be executed, the print() command (function) can use single or double quotes. In fact, in Python, it's possible to demarcate strings this way.
+Without a doubt, the most basic command from which we can start our learning is to show something on the screen. For this, in Python, we use the print() function.
+
+Let's see:
+
+Example 1
+
+
+1 print("Hello world!")
+
+
+
+
+
+As you might imagine, this command will write “Hello World” to the screen.
+
+
+
+
+To show how transparent Python is to the operating system, the next examples will be shown using Linux. It was probably installed on Windows, but don't worry. What we're going to do here goes for both systems.
+
+Observe the execution of the example already presented inside IDLE. By the way, before we use Sublime Text, let's get used to IDLE and then head to the IDE.
+
+Look:
+>>> print ("Hello")
+Hello
+>>> print('Hello')
+Hello 
+
+//commands were executed with double quotes and single quotes
+Now, let's increment the model example and use the print() function with some variables. Below, review the outputs on the screen:
+>>> output = 'Hello peeps'
+>>> print(output)
+Hello peeps 
+
+second output:
+>>> output2 = "Hello peeps. Again. That's a string with some detais, with a lot of lines Let's put some little text just to understand. \
+
+Note that when we need to create a very large string, which takes up several lines, we can use a slash (“\”) to continue the text on the next line.
+
+In this case, the output will look like this:
+
+print(output2)
+Hello peeps pythonist.  Again. That's a string with some detais, with a lot of lines Let's put some little text just to understand. \
+so random text to youunderstand how this is works 
+
+
+Note that the sections “delinhas” and “youunderstand” were defined with the slash, but the output was not very good.
+
+Heads up
+The slash just skips the line, the space is up to us. The character that starts a new line is “\n”.
+
+Example
+
+Review this code sequence:
+>>> output3 = """
+Look around everywhere you turn is heartache
+It's everywhere that you go (look around)
+You try everything you can to escape
+The pain of life that you know (life that you know)
+"""
+>>> print(output3)
+
+Look around everywhere you turn is heartache
+It's everywhere that you go (look around)
+You try everything you can to escape
+The pain of life that you know (life that you know)
+
+
+
+This feature is very interesting: with triple quotes, we can use big strings and skip the line normally. Python does the work of generating the correct output for us.
+
+Note that, in the example above and in this one, the characters “...” appear, which indicate a continuation line for the current command. In other words, in the cases presented, the string is being filled and has not yet been finalized.
+
+Now, let's look at this code:
+>>> output4 = 'Sweet'
+>>> outpu5 = 'And'
+>>> output6 = 'Love'
+>>> print(output4 + outpu5 + output6)
+Sweet And Love 
+>>>
+Here, we see that we can concatenate strings using the “+” operator, which also serves to perform arithmetic operations, such as:
+
+
+1 print(1+1) # Output will be 2
+2 print (‘f’ + ‘é’) #The output will be faith
+3 print (‘f’ + 1) #Oops! Then he forced the bar. This will generate an error because we are mixing a string with a number.
+
+
+
+There are more functions related to strings, but for now, to display data on the screen, these are enough.
+
+
+Data entry on screen
+
+We already know how to display data on the screen through the print() function, but how can we receive data from the keyboard when the user wants to type something?
+
+The function to perform this task is input(). From now on, we will present some examples of its applicability.
+
+The general syntax of the command is input([prompt]). When present, the prompt is displayed on the screen, and a new line awaiting user input is displayed.
+
+Let's see:
+
+>>> input('Say your name')
+Click on name LUV 
+'LUV'
+>>> name = input('Say your name:')
+Say your name: Luv 
+>>> print(name )
+Luv 
+>>>
+
+
+
+In example 1, we use input() directly, without using any variables to receive the text typed by the keyboard.
+
+In example 2, we assign the result of input() to variable name. Next, after typing the input, we use print() to display the value of this variable on the screen.
+
+But it is necessary to note a small detail. To better understand, review the following code:
+
+>>> input = input("How old are you?")
+2 how old are you? 10
+3 >>> print('Your age in days is approximately: ',365*input)
+4 Your age in days is about: 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 10101010101010101010101010101010101010101010101010101010101010101010101010101010 1010101010
+
+
+
+As you noticed, the script didn't behave as it should. The goal was to present the user's age in days by doing a simple multiplication by 365. So what happened?
+
+
+
+As with other programming languages, all keyboard input has a 'string' type. Thus, the “10” character that the user typed was used as a string, not a number. Therefore, it was presented 365 times.
+
+So if we want to use it to enter numeric values ​​that will be applied to an arithmetic expression, we need to convert the input to the correct type.
