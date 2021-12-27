@@ -1,0 +1,473 @@
+p-3 
+Introduction
+So far, we've learned how to create small Python scripts. As we are still at the beginning of our study, these are just sequential structures, not consistent programs.
+
+From now on, we are going to insert decision and repetition structures into the codes, which are very similar to those found in programming languages ​​you already know. But there are some aspects of Python that certainly contribute to its popularity and ease of learning.
+
+The way to create the structures will be a little different. Therefore, practice is very important. Be sure to exercise the examples we will develop here.
+Using Sublime Text
+
+
+Before we get started, it's time to use Sublime Text to our advantage.
+
+So far, we've run commands directly in IDLE. From this class, with the small increase in the complexity of the programs, we will start using the IDE Sublime Text and the Windows command prompt
+In class 1, we installed Python and Sublime Text. Here, we'll finish setting up our environment. To do this, follow these procedures:
+
+
+Step 1
+
+Create a directory on your computer where you will store your programs.
+
+Example: C:\PROGRAMMINGIII
+
+
+Step 2
+
+Open Sublime Text and create a new file. Save it as class3_1.py in the directory you created to store your programs.
+All Python programs have the .py extension.
+
+
+
+The program has the following listing:
+
+
+1 i = 0
+2 while (i < 9):
+3 print ('Count:', i)
+4 i = i + 1
+5 print ("It's over!")
+
+
+Did you notice that, unlike programs in other languages, in this one, there are no characters “{“ and “}”? The Python language doesn't use them.
+
+But how are command blocks created?
+Through indentation. Therefore, the spaces that exist in lines 3 and 4 are, in fact, indentations made by the TAB key. As long as the code is indented, we will have a command block in that indentation.
+
+
+We'll get to that in a bit. For now, our goal is to run the program.
+
+
+Step 3
+
+Open the Windows command prompt and enter the same directory as your .py program.
+
+As we already configured Python in class 1 to run in any directory on the computer, it will be possible to run the program like this:
+C: \PROGRAMACAOIII>python class3_1.py 
+Count: 0
+Count: 1 
+Count: 2 
+Count: 3 
+Count: 4 
+Count: 5
+Count: 6 
+Count: 7
+Count: 8
+End! 
+
+As we can see, the command to run the program is python (program_name.py). We will use it from now on.
+
+repeating structures
+
+In Python, the repeating structures are basically as follows:
+
+
+Type Description
+while Repeats a statement or group of statements while a given condition is true, and tests the condition before executing the looping/loop body (repeating a block of commands).
+for Executes a sequence of instructions multiple times, according to a commonly known condition.
+
+while command
+
+In the previous example, we saw a small program to do a count. Let's use it again:
+
+
+1 i = 0
+2 while (i < 9):
+3 ➜ print ('Count:', i)
+4 ➜ i = i + 1
+5 print ("It's over!")
+
+
+Lines 1, 3, 4 and 5 are familiar to us, right? These are commands that we studied in past classes.
+
+The novelty appears from line 2: the while command, which is very similar to the already known languages, including the condition in parentheses, as occurs in traditional ones.
+
+The details of this command are the colons (“:”), which start the sequence of commands that will be repeated.
+Tip
+
+If you have configured the Anaconda plugin in Sublime Text or if you are using IDLE, pressing Enter after the “:” will cause the Python prompt to shift the next line to the right, as shown in line 3. If not, press the TAB key to indent the code and create the block.
+
+
+As long as the code is indented or shifted to the right, we will be inside the block of commands that will be repeated. This occurs on line 4. Therefore, the repeating block will be on lines 3 and 4.
+
+On line 5, the indentation is removed, and the program ends.
+
+Review the next example:
+
+
+1 var = 1
+2 while (var == 9):
+3 num = int (input("Enter a number:"))
+4 print ("You typed: ", num)
+5 print ("It's over!")
+
+
+
+What does the program do?
+
+You may have noticed that this is an infinite loop. Note the condition of the while on line 2 and the command block: there is no change in the variable var. Therefore, the condition will never be false, and the looping will never end.
+
+
+To stop execution, press Control + C.
+Now, take a closer look at the following example:
+
+
+1 i = 0
+2 while (i < 5):
+3 print (i, “is less than 5”)
+4 i = i + 1
+5 else:
+6 print (i, “is less than 5”)
+
+
+
+Here, we discover something new: else in the while statement. This is because Python has some differences from other languages.
+
+The else can be used with while when we want a statement or a block of commands to be executed in a false condition.
+
+
+See program output:
+
+c: \PROGRAMMINGIII> python class3_3.py 
+0 is less than 5 
+1 is less than 5
+2 is less than 5
+3 is less than 5
+4 is less than 5
+5 isn't less than 5
+
+the last line shows the instructions
+command for
+
+Normally, the for command has as syntax the creation of a loop control variable, a stop condition and the increment. There is this structure in Java, Javascript, C, C++, PHP, etc.
+
+In Python, it's a little different: we use this command to iterate through a string or iterate over a vector.
+
+Note the following example:
+
+
+1 for i in range (1, 11):
+2 print (i, ‘Count: ’, i)
+3 print (‘Now its over.’)
+
+
+The output of the program will be as follows:
+
+C:\PROGRAMMINGIII> python class3_5.py 
+Count: 1 
+Count: 2
+count: 3
+count: 4
+count: 5
+count: 6 
+count: 7 
+count: 8 
+count: 9 
+count: 10 
+end. 
+
+In this case, we use a function called range(), which has a lower limit and an upper limit as the repetition interval. In this function, if there is only one parameter, the repetition will be performed according to the value inside the parentheses.
+
+The for command is most commonly used when working with lists and other data structures, but we'll only cover this subject in a later lecture.
+
+decision structures
+
+The decision structures in Python are:
+
+
+Type Description
+if Used to perform an action if a condition is true.
+Else Used when the condition is not satisfied.
+Elif Used if more than one alternate condition.
+
+Let's understand how each one works...
+
+
+if and else commands
+
+In Python, the if statement has the following syntax:
+
+
+if expression:
+       command(s)
+else:
+       command(s)
+
+
+Note that, again, indentation is mandatory to create the command block. There are no characters “{“ and “}” here, but the colon (“:”) appears after the conditional expression.
+
+Let's look at an example:
+
+
+1 var1 = 100
+2 if var1:
+3 print ("1 - True Value")
+4 print (var1)
+5 else:
+6 print ("1 - False value")
+7 print (var1)
+8
+9 var2 = 0
+10 if var2:
+11 print ("2 - True Value")
+12 print (var2)
+13 else:
+14 print ("2 - False value")
+15 print (var2)
+16
+17 print (“Goodbye!”)
+
+What will be printed in this program?
+
+C: \PROGRAMMINGIII> python class3.oy 
+1- true value 
+100
+2- false value 
+0 
+bye! 
+
+In line 1, we define that var1 will have the value 100 (true value stored in the variable).
+
+In line 9, the value 0 stored in variable var2 can be treated as a representation for what we know as false. In other words, in Python, 0 and false have the same meaning in a condition.
+
+
+When using conditionals, especially in the repetition and decision structures, we need to employ the comparison operators, as shown in the following table:
+
+
+Symbol Definition
+== equal
+!= different
+> greater than
+< Less than
+>= Greater than or equal
+<= Less than or equal
+
+
+
+elif command
+
+
+The if statement is used to perform an action if a condition is true, and the else statement when the condition is not satisfied.
+
+If there is more than one alternative condition, we can use the elif command to analyze them – before applying the else.
+
+
+elif = else if or elsif from other languages
+
+See an example:
+
+
+1 age = int (input (‘Enter your age: ’))
+2 if age >= 10 and age < 20:
+3 print (‘You are a teenager’)
+4 elif age >= 20 and age < 30:
+5 print (‘You are young’)
+6 elif age >= 30 and age <= 100:
+7 print (‘You are an adult’)
+8 else:
+9 print (‘Value not found!’)
+
+
+
+As you noticed, if neither condition is true, the final else will be executed and will present the message “Value not found!”.
+
+Now that we've learned how to use elif, let's improve the example from the previous class, incrementing the Body Mass Index (BMI) calculation program, whose formula is as follows:
+
+
+BMI = weight/(height*height)
+
+
+
+To complete the program, it is important to remember the BMI classification according to the person's weight, presented in the table below:
+
+
+
+BMI Value Rating
+Under 17 Very underweight
+Between 17 and 18.49 Underweight
+Between 18.5 and 24.99 Normal weight
+Between 25 and 29.99 Over weight
+Between 30 and 34.99 Obesity I
+Between 35 and 39.99 Obesity II (severe)
+Over 40 Obesity III (morbid)
+
+
+Using experience with other languages ​​and with programming logic, we realize that the classification will be done based on several conditionals. So we can use the elif command.
+
+See the example:
+
+
+1 weight = input (‘Enter your weight in Kg: ’)
+2 height = input (‘Enter your height in m: ’)
+3 imc = float(weight) / float(height) * float(height))
+4 if imc <= 17:
+5 print (‘Much underweight’)
+6 elif imc > 17 and imc < 18.5:
+7 print (‘Under weight’)
+8 elif imc > 18.5 and imc < 25:
+9 print (‘Normal weight’)
+10 elif imc > 25 and imc < 30:
+11 print (‘Overweight’)
+12 elif imc > 30 and imc < 25:
+13 print (‘Obesity I’)
+14 elif imc > 35 and imc < 40:
+15 print (‘Obesity II(severe)’)
+16 else:
+17 print (‘Obesity III(morbid)’)
+
+
+The output of the program will be:
+
+C: \ Users\Jo\Documents\python>python class3.py
+Enter you weight in kg: 80
+Enter your height in meters: 1.75 
+More than weight
+
+C: \ Users\Jo\Documents\python>python class3.py
+Enter your wieght in kg: 65 
+Enter your height in meters: 1.80 
+Normal weight 
+
+C: \ Users\Jo\Documents\python>python class3.py
+Enter your weight in kg: 95 
+Enter your height in meters: 1.65 
+Obesity I 
+
+C: \ Users\Jo\Documents\python>python class3.py
+
+In this case, there is a detail that can make our practice more laborious: we need to run the program manually every time (by calling Python) in order to have an output on the screen. Ideally, you would put a repeat so that multiple users could test your BMI. Now, let's tweak the program a little more:
+
+
+1 again = 'y'
+2 while (again=='s'):
+3 weight = input (‘Enter your weight in Kg: ’)
+4 height = input (‘Enter your height in m: ’)
+5 imc = float(weight) / float(height) * float(height))
+6 if imc <= 17:
+7 print (‘Much underweight’)
+8 elif imc > 17 and imc < 18.5:
+9 print (‘Underweight’)
+10 elif imc > 18.5 and imc < 25:
+11 print (‘Normal weight’)
+12 elif imc > 25 and imc < 30:
+13 print (‘Overweight’)
+14 elif imc > 30 and imc < 25:
+15 print (‘Obesity I’)
+16 elif imc > 35 and imc < 40:
+17 print (‘Obesity II(severe)’)
+18 else:
+19 print (‘Obesity III(morbid)’)
+20 again = input('Do you want to continue (y/n)?')
+21 print (‘\nNow its over’)
+
+
+The result will be:
+
+C: \ Users\Jo\Documents\python>python class3.py
+Enter your weight in kg: 80 
+Enter yout height in m: 1.75
+More the normal 
+Do you wanna continue <y/n> > y 
+Enter your weight in kg: 90
+Enter you height in m: 1.65 
+Obesity I 
+Do you wann continue <y/n>? y 
+Enter your weight in kg: 60 
+Enter you height in meter: 1.55 
+Normal weight 
+Do you wanna continue <y/n>? n 
+
+End
+
+See how the while command helped make the program more interactive.
+
+We're not going to deal with the logic of execution here, but if you have any questions about it, study the code.
+
+There are other ways to create repetition. We use this to make learning easier and, with it, apply the two learned concepts and commands.
+
+Now it's your turn!
+
+Practice with other programs you know and convert them to Python.
+
+Create the programs for this and previous classes in Sublime Text, and use the Windows command prompt to run them.
+
+Also practice answering the following questions.
+
+Consider the following codes and indicate the output of each, justifying your answer:
+
+
+First code:
+
+i = 1
+while True:
+   if i%3 == 0:
+      break
+print(i)
+
+i + = 1
+
+
+Second code:
+
+True = False
+while True:
+   print(True)
+   break
+
+In either case, the output will be Error. In code (a), the syntax error appears on the last line, and in code (b), on the first, which prevents any printing.
+
+
+Consider the following code:
+
+
+i = 0;
+while (i < 3):
+   print("hi")
+
+
+After its execution, the result will be:   
+
+a) hi
+           Hi
+           Hi
+
+Consider the following code:
+
+
+i = 0
+while (i < 3):
+print('hi')
+println('bye')
+
+
+After its execution, the result will be:
+           Error
+
+
+In Python, the indentation is:
+
+
+a) Optional.
+
+
+b) Unused.
+
+
+c) Poorly standardized.
+
+
+d) Allowed in some cases.
+
+
+e) Mandatory in decision or repetition commands. TRUE 
+
+
