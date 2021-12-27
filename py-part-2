@@ -1,0 +1,136 @@
+input = input('How old are you?')
+How old are you? 10 
+print('You have almost ', 365*int(input), 'day of age')
+You have almost 3650 days of age 
+
+In this example, the question asked to the user was: “How old are you?”. Then, the user typed 10. Finally, the int() function was used, which transforms a string value into an integer, which enables the mathematical operation.
+
+Also note that we concatenate with other parts to form a user-friendly sentence: “You are approximately 3650 days old”.
+
+The following table presents the main data conversion functions:
+
+Function Description
+int(x [,base]) Converts x to an integer. In that case, we can use a base for the number.
+float(x) Converts x to a floating point number.
+str(x) Converts x to string.
+repr(x) Converts x to an expression string.
+set(s) Converts s to a set.
+chr(x) Converts an integer to a character.
+unichr(x) Converts an integer to a Unicode character.
+ord(x) Converts a single character to its integer value.
+hex(x) Converts an integer to a hexadecimal string.
+oct(x) Converts an integer to an octal string.
+
+Review the following command:
+
+>>> a=10
+>>> print(a*2)
+
+Your output is:
+
+
+a) 20
+>>> a='10'
+>>> print(a*2)
+
+Your output is: 1010 
+Before we create a more consistent program, let's talk about variables in Python.
+
+Variables
+Python can be classified as a loosely typed language. Therefore, we can use variables freely in a program or in a sequence of commands in IDLE.
+
+In Python, the declaration of a variable happens automatically when we assign it a value. In the previous example, we saw that, to do it, we just use the “=” operator.
+
+
+
+1 a = b = c = 1 # in this case, a, b and c will have the value 1
+2 a, b, c = 11, 12, "Hi" # in this case, a=11, b=12 and c="Hi"
+
+
+
+The variable's type is known at the time of assignment and can be modified according to the value that has been assigned to it.
+
+See what can happen during the execution of a script, observing the value of the variable test:
+
+
+
+1 >>> test = 10
+2 >>> test * 3 #Output: 30 - It's a number
+3 >>> test = 'Now what?'
+4 >>> test * 3 #Exit: 'Now what? And now? And now?' – Now it's String
+
+
+
+
+The Python language has several standard data types that are used on an assignment, such as:
+
+Number;
+Strings;
+Lists;
+Tuples;
+Dictionary.
+
+Python logo
+Source: Wikipedia.
+
+Here's what we can do with strings:
+
+
+
+1 >>> testing = "Hello World!"
+2 >>> print(testing) #Output: Hello World!
+3 >>> print(testing[0]) #Output: O
+4 >>> print(testing[4]) #Output: M
+5 >>> print(testing[2:6]) #Output: á Mu
+6 >>> print(testing[3:]) #Output: World!
+7 >>> print(testing*2) #Output: Hello World!Hello World!
+As with other languages, in Python, a string is an array of characters. The difference lies in the possibilities to split the string into smaller pieces, as shown in the previous example.
+
+You may have already studied variables in the initial Programming disciplines and even in other languages. For now, it's important to know that Python uses dynamic types and, as you've seen, it's pretty easy to declare and work with them.
+
+Heads up
+
+In the next few lessons, we'll learn that variables are actually objects. Remember Object Oriented Programming (OOP). And the functions we've already mentioned are methods.
+
+sample program
+
+To exemplify sequential commands in the Python language, let's now create a small program. The goal is quite simple: calculate a person's Body Mass Index (BMI).
+
+You should know that, depending on the value, the BMI ranks the individual according to their weight. In that case, we would have to use a condition to inform the user of their rating, but for now, we're not going to do that. Let's leave this topic for the next class.
+
+In IDLE, type these commands along with their output: **body mass index 
+
+>>>height = input('enter your height in meters: ')
+enter your height in meters: 1.75 
+
+>>>weight = input ('enter your weight in kilos: ')
+enter your weight in kilo: 80 
+>>> bmi = float(weight)/ (float(height)*float(height))
+>>> print(bmi)
+26.12244897
+
+Note that since we are going to work with floating point values, we use the float() function – presented in the previous table.
+
+The program is very clear and practical. In this case, the calculated BMI has a value of 26.12, which classifies the user as overweight.
+Now you have what you need to create small Python programs. Just practice and test the commands in other examples.
+
+In the next class, we'll learn other programming structures and improve this program we just made.
+
+How about we practice now?
+Write a program that asks for a number and then displays the message The number entered was [number].
+
+
+
+
+>>> number = input('Enter a number: ')
+>>> print('The number entered was ',number)
+Make a program that asks for the four bimonthly notes and shows the average.
+
+
+
+>>> note1=input('Note 1?')
+>>> note2=input('Note 2?')
+>>> note3=input('Grade 3?')
+>>> note4=input('Grade 4?')
+>>> average = (float(grade1)+float(grade2)+float(grade3)+float(grade4))/4
+>>> print(media)
