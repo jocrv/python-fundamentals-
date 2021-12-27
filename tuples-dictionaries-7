@@ -1,0 +1,234 @@
+pat 7- tuple and dictionary 
+
+Introduction
+As we saw in previous lessons, the object-oriented paradigm is widely used in many languages. In Python, it's no different. Everything we've studied so far is a derivation of the concepts of classes and objects.
+
+Here, we are going to continue this study, taking up classes on lists and data structures, in order to learn how to use tuples and dictionaries, which are applied in various everyday situations.
+
+If you do an internet search, you will find various topics related to the Python language, such as desktop and web development. For example, Django is a popular web and flask framework.
+
+REMEMBER: many Python applications are built in command line or console applications. Our object of study serves these applications. So enjoy!
+
+tuples
+
+
+Tuples are nothing more than lists. We have already learned that it is possible to perform various commands from lists, such as inserting and removing data at all times, shuffling and sorting elements, etc.
+
+
+In the case of tuples, there is an important detail: they are immutable.
+And there are applications for that.
+
+
+
+To better understand the issue, it is necessary to explain how tuples work.
+
+In this example, let's create tuples and access their elements:
+
+
+>>> my_tuple = ('t','u','p','l','a')
+>>> my_tuple
+('t', 'u', 'p', 'l', 'a')
+
+
+Here, there is a difference with respect to lists: while lists are surrounded by square brackets “[“ and “]”, tuples are surrounded by parentheses “(“ and “)”.
+
+
+Now, let's change the first element from “t” to “s”:
+
+
+>>> my_tuple[0]='s'
+Traceback (most recent call last):
+    File "< pyshell#151 >", line 1, in < module >
+            my_tuple[0]='s'
+TypeError: 'tuple' object does not support item assignment
+
+
+Did you notice how the tuple is immutable?
+
+We can't change its elements, but you can access them, just like we did with lists. Watch:
+
+
+>>> my_tuple[0]
+'t'
+>>> my_tuple[4]
+'The'
+>>> my_tuple[10]
+Traceback (most recent call last): ← Oops! As with lists, we have to respect the indices.
+     File "", line 1, in ← There is no element at position 10
+          my_tuple[10]
+IndexError: tuple index out of range
+
+There is a way to access the elements of a list that also works for tuples, called slice. See how it works:
+
+
+>>> my_tuple
+('t', 'u', 'p', 'l', 'a')
+>>> my_tuple[1:3]
+('u', 'p')
+
+
+The slice allows us to slice a tuple (or list) and return its elements through another tuple (or list), but without taking them out. The slice is represented by square brackets, which refer to the tuple's indices.
+
+
+Non-existing indices throw the usual “out of range” exception.
+
+
+
+There are other forms of slice, as shown in the following code:
+
+
+>>> my_tuple
+('t', 'u', 'p', 'l', 'a')
+>>> my_tuple[2:] ← takes elements from position 2
+('p', 'l', 'a')
+>>> my_tuple[:3] ← takes the first n elements, in this case the 3 prims.
+('t', 'u', 'p')
+>>> my_tuple[:] ← takes the whole tuple
+('t', 'u', 'p', 'l', 'a')
+
+Know more
+
+There are also other ways to slice a tuple (or list), but the ones we've presented are enough for the purpose of this lesson.
+Exercise
+
+Review the following code:
+
+my_tuple = (1, 2, 3, 4)
+my_tuple.append( (5, 6, 7) )
+print(len(my_tuple))
+
+What will be printed on it?
+
+
+to 1
+
+
+b) 2
+
+
+c) 5
+
+
+d) 7
+
+
+e) Error! An exception will occur. TRUE 
+
+Applying methods to tuples
+
+
+Some actions performed on lists can also be performed on tuples using the same methods. Are they:
+
+
+1. CHECK HOW MANY ELEMENTS ARE IN THE TUPLE
+For this, we use the len() method:
+
+
+>>> len(my_tuple)
+5
+>>> len(("Hello","world","from","Python"))
+4
+
+2. CONCATENATE TUPLES
+For this, we use the “+” operator:
+
+
+>>> parte1=("Heard","from","Ipiranga")
+>>> part2=("the","margins","placid")
+>>> back1 = part1+part2
+>>> back1
+('Heard', 'do', 'Ipiranga', 'as', 'margins', 'placid')
+
+3. REPEAT ELEMENTS
+For this, we use the “*” operator:
+
+
+>>> mi=('mi',) ← Note the detail of the comma!
+>>> mi*10
+('mi', 'mi', 'mi', 'mi', 'mi', 'mi', 'mi', 'mi', 'mi', 'mi')
+
+
+When we define a tuple with a single element, we must insert the comma, as we did here. If we just create a tuple with a single element – ​​like, for example, mi2 = (‘mi’) – the Python language will understand that this is a string enclosed in parentheses. In this code, we repeat the tuple element 10 times, but without modifying the original.
+
+4. VERIFY IF AN ELEMENT BELONGS TO THE TUPLE
+What goes for lists happens with tuples:
+
+
+>>> my_tuple
+('t', 'u', 'p', 'l', 'a')
+>>> 'u' in my_tuple
+true
+>>> 'f' in my_tuple
+false
+
+5. ITERATE IN THE ELEMENTS
+Now, let's apply a concept that we studied in class 3: the iteration from the for command to tuples.
+
+We know that this command is used in many programming languages ​​to repeat a certain piece of code. But it can also be used to iterate over lists, arrays and tuples. When this occurs, the for command is also known as foreach.
+
+See the example:
+
+
+>>> my_tuple
+('t', 'u', 'p', 'l', 'a')
+>>> for i in my_tuple:
+        print(i)
+t
+u
+P
+there
+The
+
+
+As you've noticed, the syntax is very similar to the is applied to lists, but now the repeating element is a tuple.
+
+The language already understands the number of repetitions that will be performed. As long as there is an element in the structure, the defined code will be repeated.
+
+In the example, we perform a very simple operation: we just write the element from the current position of the loop. In larger applications, much more complex repeat blocks could be made.
+
+Exercise
+
+Review the following code:
+
+saddle = {}
+lovely[1] = 1
+lovely['1'] = 2
+lovely[1] += 1
+
+sum = 0
+for k in seila:
+        sum += seila [k]
+
+print(sum)
+
+What will be printed on it? 4
+
+Dictionaries
+In Python, dictionary is a type of data structure in which there is a mapping between a key (key) and a value (value).
+
+In other places, even different from this language, we apply the pair-value concept, mainly related to databases that do not use the relational model.
+
+A dictionary can be represented as follows:
+
+keys: values 
+'jan'  jan 
+'feb'  feb 
+'mar'  mar 
+
+dictionary 
+
+Its keys act as an index to the values, which can be made up of any type of content – ​​including dictionary. Imagine what we can do with this structure!
+
+
+To better understand the subject, let's look at an example: a contact list.
+
+
+
+It is a list of names, usually in alphabetical order, each with some fields, such as:
+
+address
+residential telephone, celphone, mail 
+For ease of understanding, suppose that this list only contains telephone numbers with names like “Felix”, “Brito”, “Piazza”, “Carlos Alberto”, “Clodoaldo” – each with one or more numbers.
+
+The list in question can be represented like this:
+
