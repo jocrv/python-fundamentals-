@@ -1,0 +1,307 @@
+p-4 
+
+Introduction
+You may have heard that object orientation is one of the subjects you can't get away from when learning any programming language. But not quite! Remember that there are languages ​​with other paradigms which will never be object-oriented.
+
+In fact, most of the well-known and widely used languages ​​on the market have this character. And Python is one of them.
+
+As with other aspects of the language, creating and using objects is quite simple in Python. However, it is very important that you pick up the knowledge gained from object orientation from other languages.
+
+In this class, we will define some important concepts such as inheritance, abstraction, encapsulation, and polymorphism.
+
+Come on?
+
+Goals
+Explain how object orientation in Python works.
+
+Create scripts with objects in this language.
+
+Use objects in Python.
+
+
+INTRO
+GOALS
+CREDITS
+PRINT OUT
+Object orientation
+
+Object orientation is a programming paradigm that is widely used these days by major languages. And Python is among them.
+
+It is very common to find programmers who repeat code from the internet without even knowing what they are doing or the theory behind the resource used. Therefore, knowing the basics of languages ​​is extremely important to generate more effective and reusable code.
+
+Before delving into the codes, let's remember the pillars that support object orientation. Are they:
+
+inheritance abstraction encapsulation
+polymorphism
+
+object orientation
+HERITAGE
+Mechanism more related to code reuse within object orientation – a big advantage of this kind of paradigm.
+
+Example
+
+A child inherits characteristics from his parents, these inherit from his grandparents, the grandparents of his great-grandparents, and so on. In object orientation, an object below a hierarchy inherits characteristics from all objects above it.
+ABSTRACTION
+The problem for any software engineer is to transport to the computational world a view of reality according to the paradigm he chose to develop the project.
+
+In the case of object-oriented, abstraction involves three issues:
+
+1. Every object must have an identity.
+2. Every object has properties, that is, the elements that define it.
+3. Every object has methods or actions that it performs.
+
+Therefore, we can abstract elements from the real world and convert them into objects to be implemented in some object-oriented language.
+ENCAPSULATION
+Pillar that hides the properties of an object, making the program more secure and showing only the actions that the object can perform.
+
+Basically, when we use private properties related to accessor methods (get and set), we avoid direct access to the object's property, increasing application security.
+
+Example
+
+When we watch TV, we are only concerned with the act of turning the device on or off, which occurs internally. But the circuits involved within television are neither of our knowledge nor of our interest.
+POLYMORPHISM
+Child objects inherit attributes and methods from their parents, but in some situations it is important that actions for the same method are different. Polymorphism occurs when there is a change in the inner workings of a method inherited from a parent object.
+
+Example
+
+Let's get back to thinking about how TV works. The television can be an object that inherits from a class called an appliance. We know that every appliance can be turned on or off, right? Considering two objects (a TV and a washing machine), they both have the on and off method, but the way they do it is multiple (polymorphism).
+The four pillars are fundamental to understanding the object-oriented paradigm. Each language implements them differently, but overall the result is the same.
+
+Heads up
+
+Although the concepts don't change, there are specific details that involve inheritance and polymorphism in some languages.
+
+Python Functions
+
+In object-oriented, we need to write methods in classes, which are very similar to functions and procedures in structured programming.
+
+So, before we start writing object-oriented programs, we need to learn how to write functions in Python.
+
+So let's show a function defined in this language:
+
+
+1 def printme (str):
+2 "This function will print: "
+3 print str
+4 return
+
+
+Can you figure out what it's for?
+
+
+
+Reflect on this as we explain its structure:
+
+
+1. Every function in Python starts with the def command.
+
+
+2. After the def there is the function name
+
+
+3. Next, the parameter list appears, which may be empty, but parentheses are mandatory.
+
+
+4. Following this list are a colon (“:”).
+
+
+5. Notice that there is an indentation on lines 2, 3, and 4. Any code that is indented will be part of the function body. Indentation is very important in defining functions. So be careful when typing command blocks.
+
+
+6. Every function ends with a return statement, which may or may not be followed by a return variable.
+
+
+The function was defined in the previous example, but how to execute a user-defined one?
+
+Remember, we've already learned how to do this: when we use print() or input(), we're actually calling built-in Python functions—also called a build-in.
+
+As an example, let's use IDLE. Look at the picture:
+>>> def printme(str):
+print("This function will print: ")
+print(str)
+return 
+
+>>> printme("MargarethThatcheris110%sexy")      /// call this function
+This function will print:
+MargarethThatcheris110
+>>>
+
+As we can see here, calling the function is not much different than in other languages.
+
+
+
+We'll cover functions again and in more detail in Lecture 9. Since our current goal is to learn object orientation, what we've studied so far is sufficient.
+
+Know more
+
+Perhaps, you found the example string strange, but its story is quite interesting. If you want to know more about it, watch the video Edward Snowden on Passwords: last week tonight with John Oliver.
+
+Python Classes
+
+In Python, creating a class is also pretty simple. Note its syntax:
+
+class ClassName:
+        'Class Documentation String (Optional)'
+        class_body
+
+
+Let's look at an example:
+
+
+1 class Employee:
+2 'Base Class for Employees'
+3 counter = 0
+4
+5 def __init__ (self, name, salary):
+6 self.name = name
+7 self.salary = salary
+8 Employee.accountant += 1
+9
+10 def display_counter (self):
+11 Print ("Number of employees: %d" % Employee.counter)
+12
+13 def employee_show (self):
+14 Print ("Name: ", self.name, ", Salary: ", self.salary)
+
+
+
+This is a class! If you look at your code, you'll notice that it's not that different from other languages. Basically, the structure is very similar to any other object-oriented language.
+
+To make it easier to understand, let's explain the class line by line:
+Line 1
+Class definition and its name (Employee). Don't forget to put a colon (“:”) after this nomenclature.
+
+
+Line 2
+Brief description of the class. Note that it is NOT a comment, but a string that is part of the class's documentation.
+
+
+Line 3
+Creation of a class variable – called, here, counter. The definition of variables is done according to the rules of the language. Remember that a class variable is different from an instance variable.
+
+
+Line 4
+Management control activities.
+Impact by management changes.
+
+
+Lines 5 to 8
+Definition of the constructor method. Note its specific name: “__init__()”. When Python finds this method, it treats it as the class's constructor. Inside it, we define the instance variables of the class.
+
+
+Lines 10 to 13
+The other methods of the class are created like normal functions, with the exception that the first argument to each method is self. Python puts self on the list for you, but it doesn't need to be referenced when calling methods.
+
+Exercise
+
+Now that you've learned about classes in Python, create a class that represents a Cartesian point with X and Y coordinates. The coordinates should be part of the constructor. Create a sentence to represent and document the class.
+
+point class:
+        ‘Class for representing and manipulating X and Y coordinates’
+
+        def __init__(self,_x,_y):
+            self.x = _x
+            self.y = _y
+
+Python Objects
+
+Now that we've created the classes, it's time to instantiate the objects.
+
+Let's use the Employee class as a base:
+
+
+>>> emp1 = Employee("Fabiano",1000)
+>>> emp2 = Employee("João Neves", 1500)
+
+
+
+Here, we don't need to declare the object before and then instantiate it with “new” or another command like in other languages. In Python, we carry out the process directly.
+
+
+Since we create a constructor for the class, it is invoked when we create objects of the referenced class.
+
+
+
+Note that we don't pass the self as a parameter, but the name and salary in the same order as they are defined in the constructor method signature.
+
+Let's go back to the previous exercise. Remember the class you created to represent a Cartesian dot? Now add two more points.
+
+p ➜ with coordinates 2 and 3;
+q ➜ with coordinates 3 and 2.
+
+
+
+
+>>> p=Point(2,3)
+>>> q=Point(3,2)            
+
+Now, let's look at one more example:
+
+
+THEN LET'S ACCESS THE CLASS ELEMENTS
+>>> emp1.show_employee()
+Name: Fabiano, Salary: 1000
+>>> emp2.show_employee()
+Name: João Neves, Salary: 1500
+
+WE MAY EVEN INCLUDE, REMOVE OR MODIFY CLASS AND OBJECT ATTRIBUTES AT ANY TIME
+>>> emp1.ity = 44
+
+PLEASE NOTE THAT WE CREATED A NEW INSTANCE VARIABLE IN THE EMPLOYEE CLASS
+>>> print("Name: ",emp1.name," - Salary: ",emp1.salary," - Age: ",emp1.age)
+Name: Fabiano - Salary: 1000 - Age: 44
+
+ALREADY FOR THE EMP2 OBJECT, WE HAVE...
+>>> print("Name: ",emp2.name," - Salary:",emp2.salary," - Age:",emp2.age)
+Traceback (most recent call last):
+        File "", line 1, in
+            print("Name: ",emp2.name," - Salary:",emp2.salary," - Age:",emp2.age)
+AttributeError: 'Employee' object has no attribute 'age'
+
+In the case of emp2 there is an error. Did you manage to notice?
+Identify it and explain how we can fix it.
+
+
+
+Here, we do not set the age attribute value for the emp2 object. To fix this, just add a value to this attribute, as was done for the emp1 object.
+
+If it is necessary to delete the age attribute, we can do:
+
+>>> of emp1.ity
+
+Instead of using the normal instructions to access attributes, you can also apply the following functions:
+
+getattr (object, name [, default])
+
+To access the object attribute
+
+
+hasattr (object, name)
+
+To check whether there is an attribute or not
+
+
+setattr (object, name, value)
+
+To define an attribute (if it doesn't exist, it will be created)
+
+
+delattr (object, name)
+
+To delete an attribute
+
+Heads up
+As we suggested in previous lessons, redo the examples presented here. Run, make mistakes, find your mistakes and try to fix them. Practice is essential in learning a new programming language.
+
+Exercise
+
+To finish this class, let's practice with one more exercise.
+
+Create one method to return the X coordinate value and another to return the Y coordinate value.
+
+def getX(self):
+        return self.x
+def getY(self):
+        return self.y
+
+        
