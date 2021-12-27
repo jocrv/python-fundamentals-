@@ -1,0 +1,417 @@
+part 6 
+lists, stacks and 
+Introduction
+So far, we've studied the fundamentals of object-oriented Python. Now, let's deal with lists: a data structure widely used and applied in this language.
+
+Several programs use lists. For example, in data science, they serve as the basis for various search and optimization algorithms. We can also apply them in numerous areas, such as genetics and bioinformatics – mainly in DNA analysis.
+
+As in other classes, the idea here is to learn through examples. Come on?
+Creating and manipulating lists
+
+Some programming languages ​​need to import external packages or libraries to work with lists. In Python this is not necessary as the lists are already available for use.
+
+Just as there are integers, strings, booleans, lists are also seen as a type of sequence in this language. It is a kind of array. The difference is that, inside them, there are objects, not just values ​​of a certain type.
+
+We can perform various operations on lists, such as:
+enter data
+
+
+remove data
+remove data
+
+
+search for an element
+search for an element
+
+
+Sort the lists themselves
+Sort the lists themselves
+
+But first we need to create them. See how this is done:
+
+
+list = [ ]
+
+
+
+
+In this case, we create an empty list called a list. To see its contents, the command is the same as checking with variables:
+
+
+>>> list
+[ ]
+
+
+Now, let's build a more complex list, with elements already inserted at the time of creation. We will then review the values ​​entered.
+
+Note that we mix strings and integers:
+
+
+>>> list2 = ['Hello','world',123] <<- creation
+>>> list2
+['Hello', 'world', 123] <<- checking the values
+
+
+To access a particular element in the list, we use the same syntax as accessing an element in a vector:
+
+
+>>> list2[0] ← the list always starts with index 0
+'Hi'
+>>> list2[2]
+123
+>>> list2[3] ← we have no element in position 3
+Traceback (most recent call last):
+    File <"pyshell#7">, line 1, in < module >
+        list2[3]
+IndexError: list index out of range ← see error
+
+
+Based on that, we can learn some methods needed to manipulate lists.
+
+First, let's identify if there is an element in the list. For this, we use the in:
+
+
+>>> 'world' in list
+false
+>>> 'world' in list2
+true
+
+
+Next, in a numeric list, let's determine the minimum, maximum, and sum of numbers:
+
+
+>>> list_num=[10,50,40,30,50,90,70]
+>>> min(num_list) ← minimum value
+10
+>>> max(num_list) ← maximum value
+90
+>>> sum(num_list) ← sum of numbers
+340
+
+Methods for Lists
+
+The Python language allows us to use written methods to manipulate lists without the need to import external libraries or packages. These methods make it possible to sort, search and exchange elements.
+
+Let's look at some of them:
+INSERTION OF ELEMENTS
+We can do this at the end of the list via the append() method. Look:
+
+>>> states = ['SP','RJ','ES'] ← list of states in the southeast region
+>>> states
+['SP', 'RJ', 'ES'] ← we show the entered states
+>>> states.append('MG') ← inserting ‘MG’ at the end of the list
+>>> states
+['SP', 'RJ', 'ES', 'MG'] ← insertion verification
+
+REMOVAL OF ELEMENTS
+For this, we use the pop() method, which may not take parameters. When it receives them, it eliminates the element from the referenced position. Watch:
+
+>>> states
+['SP', 'RJ', 'ES', 'MG'] ← original list
+>>> states.pop(4) ← trying to remove from position 4
+Traceback (most recent call last): ← error, position does not exist
+File "", line 1, in < module >
+states.pop(4)
+IndexError: pop index out of range
+>>> states.pop(0) ← removing from position 0
+'SP'
+>>> states ← see how the list looks like
+['RJ', 'ES', 'MG']
+>>> states.pop() ← execute pop() without parameter removal
+'MG' ← see the last element
+
+When we don't know the position of the element we want to eliminate (such as ‘ES’) and we need to do so, we use the remove() method:
+
+>>> states
+['RJ', 'SP', 'ES']
+>>> states.remove('ES')
+>>> states
+['RJ', 'SP']
+
+INSERTION OF ELEMENTS IN SPECIFIC POSITION
+To insert a state at a specific position in the list (such as at position 1), we use the insert() method:
+
+>>> states
+['RJ', 'ES'] ← original list
+>>> states.insert(1,'SP') ← insert ‘SP’ in position 1
+>>> states
+['RJ', 'SP', 'ES'] ← ‘SP’ inserted
+
+CLASSIFICATION (ORDERING) OF ELEMENTS
+To sort the elements of a list, we use the sort() method:
+
+>>> states.sort()
+>>> states
+['ES', 'MG', 'RJ', 'SP']
+
+In this case, the classification was done in ascending order.
+
+To sort the list in descending order, let's mess it up using the shuffle() method, importing the random library in order to mix the elements randomly:
+
+>>> import random ← import from random library
+>>> random.shuffle(states) ← use shuffle() to shuffle the list
+>>> states
+['ES', 'SP', 'MG', 'RJ'] ← scrambled list
+>>> states.reverse() ← descending rating
+>>> states
+['RJ', 'MG', 'SP', 'ES'] ← list sorted in descending order
+
+Until then, we didn't have any external libraries to manipulate the lists, right? Now you know how to do this.
+
+ELEMENT OCCURRENCE COUNT
+The count() method counts how many occurrences a given element has within a list.
+
+In this example, we are going to insert some occurrences of ‘MG’ into the state list and then count. Look:
+
+>>> states
+['RJ', 'MG', 'SP', 'ES']
+>>> states.append('MG')
+>>> states.append('MG')
+>>> states
+['RJ', 'MG', 'SP', 'ES', 'MG', 'MG']
+>>> states.count('MG')
+3
+>>> states.count('RJ')
+1
+
+
+RETURN OF THE INDEX OF THE FIRST OCCURRENCE OF THE ELEMENT
+>>> states
+['RJ', 'MG', 'SP', 'ES', 'MG', 'MG']
+>>> states.index('MG')
+1
+
+Here, the ‘MG’ element was looked for in the list. It is in position 1. Thus, the method returns.
+
+PROLONGATION
+A very useful operation is done when we want to insert one list into another.
+
+Suppose there is another list of states from the southern region and we need to augment the original state list. For this, we do:
+
+>>> south = ['PR','SC','RS'] ← we create the south list
+>>> states = ['ES','MG','RJ','SP'] ← original state list
+>>> states.extend(south) ← extending the list of states
+>>> states
+['ES', 'MG', 'RJ', 'SP', 'PR', 'SC', 'RS'] ← new list of states
+
+Did you notice that all the methods used are in object.method() format? This is the same way of calling the methods we defined in the previous lessons for the created objects.
+
+
+Data structure
+
+Data structures are ways to build and store information for later retrieval. There are many practical applications for them. Now, we will study two important structures:
+
+Row
+
+In a company, there is always a shared network printer for employees to use. Jobs are placed in a queue to organize the order of prints. Those sent soon are attended to first, and so on.
+
+
+Battery
+
+In operating systems, there is an execution stack, in which instructions and data are stacked and, after execution, unstacked, according to the order of arrival.
+
+
+
+
+These are two of the main data structures that computing studies and applies. There are others just as important, but the Python language implements the ones already mentioned very well, using lists.
+
+
+Search and list at least:
+
+3 queuing applications (FIFO).
+
+3 battery applications (LIFO).
+
+The)
+Print queue;
+FIFO in logistics for material storage;
+FIFO in accounting for the valuation of current assets, in order to determine the total profit of a company in a given period of time.
+
+B)
+operating system heap and stack;
+Train cars – it is not possible to remove a car from the middle of the train;
+Buffer for recording data in memory;
+LIFO or UEPS in logistics for material storage;
+LIFO in accounting for the valuation of current assets, in order to determine the total profit of a company in a given period of time.
+
+Stacks
+
+For each data structure, there is an operating rule. The one regarding the stack is as follows:
+
+
+You have noticed that all the methods used are in the format LIFO (Last In, First Out) = Last In is First Out.
+
+
+Watch:
+Push = process of stacking or inserting elements into the structure;
+Pop = process of removing or unstacking elements of the structure.
+
+This structure, which can be a list, starts with element 1 already inserted. By means of a push, we are inserting new elements in the list, always in the first position (index 0). In the sequence of pop, the elements of position 0 are removed one by one.
+
+
+And in Python? How can we solve this?
+
+Well, we've already studied lists, we know how to create them, we've learned to insert elements at the beginning, using the insert() method, and to remove the first element, using the pop() method.
+
+Now, just represent the figure using the Python language:
+
+>>> stack = [] ← creation of list that will serve as stack
+>>> pile
+[]
+>>> stack.insert(0,1) ← start of push sequence (stack)
+>>> pile
+[1]
+>>> stack.insert(0,2)
+>>> pile
+[2, 1]
+>>> stack.insert(0,3)
+>>> pile
+[3, 2, 1]
+>>> stack.insert(0,4)
+>>> pile
+[4, 3, 2, 1]
+>>> stack.insert(0.5)
+>>> stack ← see the stack as it was after the sequence
+[5, 4, 3, 2, 1]
+>>> stack.pop(0) ← let's start unstacking
+5
+>>> pile
+[4, 3, 2, 1]
+>>> stack.pop(0)
+4
+>>> pile
+[3, 2, 1]
+>>> stack.pop(0)
+3
+>>> pile
+[2, 1]
+>>> stack.pop(0)
+two
+>>> pile
+[1]
+>>> stack.pop(0)
+1
+>>> stack ← end of list
+[ ]
+
+
+
+As you noticed, at each insert(0,x), we were inserting or stacking elements in the list. It is necessary to keep this rule.
+
+Here, we use a list. We could apply the methods studied before to sort it, remove elements from the middle, etc., but that breaks the stack rule. To ensure that this doesn't happen, the programmer has to create other mechanisms.
+
+Tip
+
+So that the rule is not broken, create a stack class. Every stack created later will be an instance of that class. Furthermore, the inner workings of insertions and removals will be invisible to the user.
+
+This is another great pillar of object orientation: encapsulation.
+
+You can apply other methods useful in this case, such as returning the value at the top of the stack and the number of elements. All of this would be implemented within the class.
+
+Outline how you would implement a stack class in Python.
+
+class Stack(object):
+              def __init__(self):
+                     self.data = []
+
+              def push(self, element):
+                     __________________________________
+
+              def pop(self):
+                     __________________________________
+
+queues
+
+The rule for the operation of the queue (queue) is as follows:
+
+FIFO (First In, First Out) = First In is First Out.
+
+Enqueue = enqueue;
+Dequeue = unqueue.
+Both are insert operations.
+
+
+We can also implement the queue using lists in Python via the append() and pop() methods. Look:
+
+
+>>> queue=[] ← queue creation
+>>> queue.append(1) ← enqueue of element 1
+>>> queue
+[1]
+>>> queue.append(2) ← enqueue: element 2
+>>> queue
+[1, 2]
+>>> queue.append(3)
+>>> queue
+[1, 2, 3]
+>>> queue.append(4)
+>>> queue
+[1, 2, 3, 4]
+>>> queue.append(5)
+>>> queue
+[1, 2, 3, 4, 5]
+>>> queue.append(6)
+>>> row ← full row
+[1, 2, 3, 4, 5, 6]
+>>> queue.pop(0) ← starting the dequeue, always from the beginning
+1
+>>> queue
+[2, 3, 4, 5, 6]
+>>> queue.pop(0)
+two
+>>> queue
+[3, 4, 5, 6]
+>>> queue.pop(0)
+3
+>>> queue
+[4, 5, 6]
+>>> queue.pop(0)
+4
+>>> queue
+[5,6]
+>>> queue.pop(0)
+5
+>>> queue
+[6]
+>>> queue.pop(0)
+6
+>>> queue ← empty queue, everyone answered
+[ ]
+
+
+As with the stack, it is recommended to implement a class for the correct handling of this data structure. After all, we need to control when the queue or stack is empty and prevent the user from trying to remove elements in that condition.
+
+
+
+The area of ​​data structure is widely studied in computing, and there is great variability in different applications. We won't be able to present them all here. The important thing is to learn to use them.
+
+We then suggest that you implement stacks and queues, and that you test them. For example, try implementing a print queue in Python.
+
+Good work!
+
+Outline how you would implement a queue class in Python.
+
+
+
+
+class Row(object):
+              def __init__(self):
+                     self.data = []
+
+       def enqueue(self, element):
+                     #here is the implementation of the enqueue
+
+              def dequeue(self):
+                     #here is the implementation of the dequeue
+
+Given the previous sketches, how would you create a method to check if the structure is empty (returning true or false)?
+
+Tip: Search and use the len() method.
+
+
+
+
+def empty (self):
+         return len(self.data) == 0
+
+         
