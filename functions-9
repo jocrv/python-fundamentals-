@@ -1,0 +1,435 @@
+Roles
+Introduction
+In previous classes, we introduced the object-oriented topic and learned how to define methods in each class, which, in terms of syntax, are very similar to functions. But, so far, our examples have been simple and based on IDLE pretty much.
+
+It's time to create bigger and more functional programs in separate files. The idea is to deepen knowledge about the particularities of the Python language, in order to develop more extensive programs and run them outside of IDLE.
+
+In this class, we'll study the functions a little more and learn how to insert them into these programs.
+Roles
+
+Let's start our class by covering some details regarding the functions that can make a difference in terms of productivity.
+
+The function is created with the def reserved word: See example:
+
+
+def function1():
+ pass
+
+
+
+We expect every function to return some value. For this, we use the return keyword. The following example implements a more complete, yet still simple, function. Watch:
+
+
+1: def temp_F(temp_C):
+2: value = (temp_C*9/5)+32
+3: return value
+
+
+The return is not mandatory. As mentioned, a function return value is expected, but not always required. In some programming languages, when this happens, the function is called a procedure.
+
+See an example:
+
+with return
+1: def temp_F(temp_C):
+2: value = (temp_C*9/5)+32
+3: return value
+
+no return
+1: def temp_F(temp_C=25):
+2: value = (temp_C*9/5)+32
+3: print("°C=",temp_C," °F=",value)
+4:
+5: temp_F()
+
+As you noticed, the visual result is the same, and we don't use return.
+
+
+
+Now, let's look at the code:
+
+
+def temp_F(temp_C):
+                  value = (temp_C*9/5)+32
+       return value
+
+
+The example function has the name “temp_F” and aims to convert a temperature that is received in the argument temp_C.
+
+
+The conversion result is processed by the temperature conversion formula in line 2, and the result is stored in the value variable.
+
+
+The function returns the value in line 3 to the caller via the word return. Every time it finds that word, the function will stop, and the result will be returned to the caller.
+
+
+Let's spice up the example by putting a part for user interaction:
+
+
+1: def temp_F(temp_C):
+2: value = (temp_C*9/5)+32
+3: return value
+4:
+5: temp = input("Enter the temperature in degrees Celsius:")
+6: temp = float(temp)
+7: temp_F = print("The temperature value in degrees Fahrenheit is:", temp_F(temp))
+
+
+
+Lines 5 through 7 create a way for the user to type the temperature in Celsius and then see it converted to Fahrenheit.
+
+It is also possible to return more than one value (= object): we can implement functions that not only return a primitive type value, but also arrays, lists, objects etc.
+Let's look at a simple example where we modify the temperature conversion function and add the conversion to the Kelvin or absolute scale:
+
+
+1: set temperature(C):
+2: F = (C*9/5)+32
+3: K = C + 273
+4: return(F,K)
+5:
+6: (tempF,tempK) = temperature (25)
+7: print("°C=25, °F=",tempF)
+8: print("°C=25, K=",tempK)
+
+
+As you've noticed, it's possible to receive more than one function callback. In this case, we use simple language types, which can be lists, objects, etc.
+
+Parameters
+
+In the previous example, we saw that the temp_F function has only one argument. In Phyhon, you can set a default value for the argument.
+
+See the example:
+
+
+1: def temp_F(temp_C=25):
+2: value = (temp_C*9/5)+32
+3: return value
+4:
+5: print("Calling the function with default value. °C=25, °F=",temp_F())
+
+
+Now, on line 1, there is a default (optional) value that works when the function caller doesn't pass any parameters, as it does on line 5. Note that temp_F() has no parameters, and inside the function, the temp_C argument has value 25 by default.
+
+Scope and lifetime of variables
+
+The scope of a variable is the part of a program in which the variable is recognized. Parameters and variables defined inside a function are not visible outside the function. This is what we call a local scope.
+
+The lifetime of a variable is the period in which the variable exists in memory. Within a function, this period comprises the interval from the moment it is called until the end of its execution.
+
+When there is a return from the function, the variables are destroyed. Therefore, the function cannot “remember” the value of a variable after its execution.
+
+See the examples below.
+
+     
+Example 1
+
+
+
+Code What will be printed
+          1: def function():
+          2: print(x)
+          3:
+          4: x = "Test"
+          5: function()
+Test
+
+
+The variable x has been defined outside the function and will have the same value inside it. Therefore, its value will not be changed.
+
+
+     
+Example 2
+
+
+
+Code What will be printed
+          1: def function():
+          2: x = "Hello world!"
+          3: print(x)
+          4
+          5: x = "Test"
+          6: function()
+          7: print(x)
+Hello World!
+Test
+
+
+There is a variable outside and inside the function with the same name (x). In this case, although the names are the same, the “x” inside the function is another variable, and its scope resides in the function.
+
+The “x” from the outside is scoped outside the function. It is a different variable, with another memory address and just the same name as the function's internal variable defined in line 2.
+
+Example 3
+
+
+
+Code What will be printed
+          1: def function():
+          2: print(x)
+          3:x = "Hello world!"
+          4: print(x)
+          5:
+          6: x = "Test"
+          7: function()
+          8: print(x)
+Hello World!
+Mistake!
+
+UnboundLocalError: local variable 'x' referenced before assignment
+
+
+We ran into a problem: the function's internal variable x was defined after the print on line 2.
+
+However, in the function (line 3), another variable x was created. The Python language handles this by checking that inside the function there is a variable x within the scope. But before that, a certain command appeared with a different variable x. Hence the error.
+
+
+     
+Example 4
+
+
+
+Code What will be printed
+          function def():
+          2: global x
+          3: print(x)
+          4: x = "Hello world!"
+          5: print(x)
+          6:
+          7: x = "Test"
+          8: function()
+          9: print(x)
+Test
+Hello World!
+Hello World!
+
+
+We fixed the bug by adding the global keyword in line 2. This indicates that the x referred to in line 3 comes from outside the function and is a global variable.
+
+In line 4, the variable x has the modified value, which is taken outside the function. You can see this in line 9: now its value is “Hello world!”, and before the call it was “Test”. In some situations, you can use this feature in programs.
+One program, several functions
+
+So far, in every class, we've presented short, simple, and straightforward examples just to show the practicality of a command or feature, but we haven't seen a bigger, more “real” program.
+
+In Python, it is possible to create graphical interfaces. For now, let's focus on a simpler example, but one that might inspire a number of better thought-out ideas.
+
+We will create a small calculator. The program will contain a menu in which the user will choose the operation he wants to do and will repeat it until he chooses to exit the program.
+
+We will define some functions that will be called throughout the program. We will not use object orientation to facilitate learning the subject. For that, we will show the complete program and explain each part.
+
+
+
+Given the program's limitations, in line 1, the import is the differential: this command reads a system library – named “os” (operational system) – which contains the os.system(‘cls’) function. This cleans the screen to make the program more organized at runtime.
+
+
+
+Creating the Menu
+
+01: imports
+02:
+03: set menu():
+04: choice = 0
+05: while (choice!=5):
+06: print("1- Addition")
+07: print("2- Subtraction")
+08: print("3- Multiplication")
+09: print("4- Division")
+10: print("5- Exit")
+11: choice = int(input("Make your choice:"))
+12:
+13: if choice == 1:
+14: (op1,op2)=data_entry()
+15: result = addition(op1,op2)
+16: elif choice == 2:
+17: (op1,op2)=data_entry()
+18: result = subtraction(op1,op2)
+19: elif choice == 3:
+20: (op1,op2)=data_entry()
+21: result = multiplication(op1,op2)
+22: elif choice == 4:
+23: (op1,op2)=data_entry()
+24: result = division(op1,op2)
+25: elif choice==5:
+26: get_out()
+27:
+28: print("The result is: ",result)
+
+A calculator can be implemented in several ways: there are functions that call functions, multiple returns, passing parameters and even an import – a command that we haven't studied so far.
+
+The program has a simple menu, which will be repeated as long as the user does not type the “5” key.
+
+We do not handle other types of entries such as letters or special symbols. This is for you as an activity, ok?
+
+By pressing "1", "2", "3" or "4", the menu calls the function data_entry() - common for all operations -, which stores two operands, which will be used in subsequent operations, chosen by the user according to the entry in the menu.
+
+
+Data input
+
+                        30: def input_data():
+                        31: operand1 = float(input("Operand 1: "))
+                        32: operand2 = float(input("Operand 2: "))
+                        33: return (operand1,operand2)
+
+
+In each operation, the function receives the operands read by the input_data, as it is part of the scope of the external function. After the operation, the return is made by the result variable – shown in the menu after the function call of the respective operation.
+
+
+Addition
+
+35: definition(op1,op2):
+36: os.system('cls')
+37: print("*** ADDITION ***")
+38: result = op1+op2
+39: return result
+
+Subtraction
+
+41: def subtraction(op1,op2):
+42: os.system('cls')
+43: print("*** SUBTRACTION ***")
+44: result = op1-op2
+45: return result
+
+
+Multiplication
+
+47: def multiplication(op1,op2):
+48: os.system('cls')
+49: print("*** MULTIPLICATION ***")
+50: result = op1*op2
+51: return result
+
+
+Division
+
+53: def division(op1,op2):
+54: os.system('cls')
+55: print("*** DIVISION ***")
+56: result = op1/op2
+57: return result
+
+To get out of the calculator, we'll call the get_out function.
+
+
+leaving the program
+
+                                                      59: def get_out():
+                                                      60: print("\n Bye! \n")
+                                                      61: quit()
+                                                      62:
+                                                      63: menu()
+
+
+As you noticed, we created several functions in the lines:
+
+• 3 (menu);
+• 30 (input_data);
+• 35 (addition);
+• 41 (subtraction);
+• 47 (multiplication);
+• 53 (division);
+• 59 (get out of it).
+
+Now it's your turn!
+
+As you can imagine, there are a lot more issues related to functions that we haven't explored here. But we've kicked things off for you to look for other resources on the internet and continue to study the topic.
+
+Remember to type the calculator program and go further: create your own.
+
+Good work!
+
+Write what will be printed by the following programs:
+
+
+1: x = 1
+2: def function():
+3: global x
+4: print('x = ',x)
+5: x = 2
+6: print('x global =',x)
+7:
+8: function()
+9: print('Value of x=',x)
+
+
+
+
+x = 1
+x global = 2
+x value = 2
+
+1: i = 1
+2: def function():
+3: global i
+4: for j in (1, 2, 3):
+5: i += 1
+6:
+7: function()
+8: print(i)
+
+
+
+
+4
+
+Review the following program:
+
+
+major def(a, b):
+     if a > b:
+          print(a, 'is the biggest')
+     elf a == b:
+          print(a, 'equals', b)
+     else:
+          print(b, 'is the biggest')
+major(3,4)
+
+What will your output be?
+
+
+a) 3
+
+
+b) 4
+
+
+c) 4 is the biggest  TRUE 
+
+
+d) N.R.A.
+
+If the return is omitted in a function, what will happen?
+
+
+a) The function will return 0.
+
+
+b) The function will return nothing.  TRUE 
+
+
+c) The function returns any number.
+
+
+d) The function will give an error, as it is mandatory to have a return.
+
+
+Here's an example of recursive functions in Python:
+
+
+def Foo(x):
+     if (x==1):
+       return 1
+     else:
+       return x+Foo(x-1)
+print(Foo(4))
+
+What will your output be?
+
+
+a) 10  TRUE 
+
+
+b) 24
+
+
+c) 7
+
+
+d) 1
