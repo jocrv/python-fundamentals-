@@ -1,0 +1,75 @@
+Python Data Manipulation
+Introduction
+Information retrieval has always been an interesting subject in computing. Writing and reading files of various formats are the principles of today's databases and represent very relevant operations in various applications.
+
+In this class, we will study strings a little more – an important topic in the Python language. After all, several applications related to data science, genetics, bioinformatics and others so used in this language are fundamentally based on strings and text files. Here, we'll explore these two issues.
+Reading and writing text files
+
+
+Basically, reading and writing files means working with strings, storing them and retrieving them. In other programming languages, it is common to use the open and write methods (or functions) to carry out these processes.
+
+In Python, it's no different: we use the same commands, and the way to work with them is very similar, with just a few peculiarities that we'll introduce here.
+
+As you already know, files are objects in this language. Based on that, we manipulate attributes and methods.
+
+<h1>AJAX</h1>
+<p>AJAX is not a programming language.</p>
+<p>AJAX is a technique for accessing web servers from a web page.</p>
+<p>AJAX stands for Asynchronous JavaScript And XML.</p>
+
+opening files
+
+To open a file, we use the open() command, which takes two arguments:
+
+
+File name
+
+
+
+reading mode
+
+
+Let's learn how to do this through examples.
+
+To start, suppose the file is in the root of your computer's C drive. If you are using Linux or MacOs, save the file in your user directory.
+
+Watch:
+
+
+>>> a = open('c:\\Users\\Fabiano\\ajax_info','w')
+>>> the
+<_io.TextIOWrapper name='c:\\Users\\Fabiano\\ajax_info.txt' mode='w' encoding='cp1252'>
+
+
+
+If the file is on drive C:\, why are there two slashes (c:\\)?
+
+
+
+It's simple: because, in some languages, the backslash (“\”) is used for escape sequences. When we put in two backslashes, the Python language understands that we are, in fact, only wanting to use one slash.
+
+
+As in other programming languages, the first argument of the open() method specifies the file that will be opened. In this argument, we need to inform the complete path of the file.
+
+
+Returning to the example, the file “arquivo.txt” was opened for writing and assigned to the variable “a”. Among the modes used to read and write files, we highlight:
+
+and
+Open the file for read only (read). You cannot insert or modify the content.
+
+w
+Open the file for writing only. The existing file will be overwritten by the current one.
+
+a - append
+Open the file for entering data that will be written at the end of the file.
+
+r+
+Open the file for reading and writing.
+
+
+When opening the file with open(), you can omit the mode. In this case, the default will be “r” mode.
+Heads up
+
+Whenever you use the open() method to open a file, write a line in front of it so you don't forget to close it. Although the computer has a lot of memory, and the operating system's garbage collector will soon delete the file, this is a good practice.
+
+Let's resume our already open file. Now, we can manipulate it for various purposes. Below are some methods:
