@@ -73,3 +73,386 @@ Heads up
 Whenever you use the open() method to open a file, write a line in front of it so you don't forget to close it. Although the computer has a lot of memory, and the operating system's garbage collector will soon delete the file, this is a good practice.
 
 Let's resume our already open file. Now, we can manipulate it for various purposes. Below are some methods:
+
+Heads up
+
+Whenever you use the open() method to open a file, write a line in front of it so you don't forget to close it. Although the computer has a lot of memory, and the operating system's garbage collector will soon delete the file, this is a good practice.
+
+Let's resume our already open file. Now, we can manipulate it for various purposes. Below are some methods:\
+
+ITERATE IN A FILE
+In many situations, we need to step through the open file line by line. This is called an iteration. For that, we use the for command as usual. See the example below:
+
+
+>>> for line in a:
+            print(line)
+<h1>AJAX</h1>
+<p>AJAX is not a programming language.</p>
+<p>AJAX is a technique for accessing web servers from a web page.</p>
+<p>AJAX stands for Asynchronous JavaScript And XML.</p>
+
+
+Here, we just show the line on the screen. In real programs, the retrieved line can be processed in several ways.
+
+Remember the exercises related to genetics from the previous class? We could, for example, calculate the number of DNA bases in each line.
+READ ALL LINES IN A FILE
+The Python language is widely used in applications related to data science for a number of reasons – among them it handles files and strings very well.
+
+In many situations, when the file is not very large, we can load all the content into a single string variable.
+
+
+>>> content = a.read()
+>>> content
+<h1>AJAX</h1>
+<p>AJAX is not a programming language.</p>
+<p>AJAX is a technique for accessing web servers from a web page.</p>
+<p>AJAX stands for Asynchronous JavaScript And XML.</p>
+
+
+The entire content of the file was transformed into a single string and assigned to the variable “content”.
+READ ALL LINES IN ONE LIST
+In other situations it is better to read content in lists. In this case, the method to be used is readlines().
+
+
+>>> a = open("c:\\users\\fabiano\\ajax_info.txt")
+>>> list = a.readlines()
+>>> list
+['<h1>AJAX<h1>\n', '<p>AJAX is not a programming language.</p>\n', '<p>AJAX is a technique for accessing web servers from a web page.< /p>\n', '<p>AJAX stands for Asynchronous JavaScript And XML.</p>']
+
+
+Note that the entire contents of the file will be entered into a list. After doing this, search methods – like those introduced in previous lessons – can be used to search for a specific value or other type of processing.
+READ THE FILE LINE BY LINE
+This is a widely used method. We often need to process the file line by line in various types of applications to:
+
+• Convert characters to uppercase;
+• Look for values ​​in another file based on line content;
+• Upload an app etc.
+
+To do this thorough reading, we use the readline() method.
+
+
+>>> a = open("c:\\users\\fabiano\\ajax_info.txt")
+>>> lin1 = a.readline()
+>>> lin2 = a.readline()
+>>> lin3 = a.readline()
+>>> lin1
+'<h1>AJAX</h1>\n'
+>>> lin2
+'<p>AJAX is not a programming language.</p>\n'
+>>> lin3
+'<p>AJAX is a technique for accessing web servers from a web page.</p>\n'
+
+
+When we open a file, there is a “pointer” that points to the current reading position.
+
+Suppose you just opened the file with open(). At that moment, the pointer will be fixed at the initial position of the file.
+
+Using readline(), the pointer will read the first line and point to the next. In other words, at each readline(), the pointer will advance to the final position of the file.
+
+Typically, we employ readline() associated with a repeat command to step through the entire file.
+CREATE AN EMPTY FILE
+Although this translates as “open”, the open() method can be used to open or create an empty file. For this, we pass the mode “w” as a parameter.
+
+
+>>> b = open("c:\\users\\fabiano\\newfile.txt","w")
+
+
+Check your computer folder that there is now a new file with size 0 kb (empty).
+DELETE THE CONTENT OF A FILE
+Sometimes the open() method can be dangerous.
+
+When we run the command in the previous example, if there was a file with the same name that we passed as a parameter, the file would be deleted and a new one would be created over the old one, deleting its contents. So use this method carefully.
+WRITE IN A TEXT FILE
+Reading data is done using read(). To write to a text file, we use the write() method.
+
+
+>>> b = open("c:\\users\\fabiano\\newfile.txt","w")
+>>> b.write("They heard the placid margins from Ipiranga")
+39
+>>> c = open("c:\\users\\fabiano\\newfile.txt","r")
+>>> for line in c:
+            print(line)
+They heard the placid shores from Ipiranga
+
+ADD MORE CONTENT TO THE EXISTING FILE
+We normally open the file on the first line.
+
+
+>>> a = open("c:\\users\\fabiano\\ajax_info.txt")
+>>> data = a.readlines()
+>>> data
+['<h1>AJAX</h1>\n', '<p>AJAX is not a programming language.</p>\n', '<p>AJAX is a technique for accessing web servers from a web page. </p>\n', '<p>AJAX stands for Asynchronous JavaScript And XML.</p>']
+>>> data.append("<p>New line inserted</p>")
+>>> a = open("c:\\users\\fabiano\\ajax_info.txt","w")
+>>> a.writelines(data)
+
+
+Note that we don't pass the mode parameter. Hence, the Python language assumes it is “r” mode. We assign the data from the file to the data list.
+
+We then insert a new line into the file. We open the file in write mode and use the writelines() method containing the data previously stored.
+
+The writelines() method is different from write() in that it accepts a list of strings, whereas write only accepts a string.
+
+Now that we've seen the files, let's move on to the strings.
+Strings
+
+In any programming language, strings are important. Even in Java, where they're not a primitive type, you'll certainly find extensive documentation about them.
+
+Here, we'll show you some basic operations involving strings in Python. In this language, everything is an object – including strings, which are derived from the str class.
+
+Next, we'll look at some functions related to strings:
+
+
+     
+Access string characters by their index
+
+
+
+As in other languages, in Python, strings are arrays of characters. Therefore, it is possible to access them singly by their index.
+
+
+>>> str1 = "Nebuchadnezzar"
+>>> str1
+'Nebuchadnezzar'
+[>>> str1[0]]
+'N'
+>>> str1[1]
+'The'
+>>> str[20]
+Traceback (most recent call last):
+File "<pyshell#21p>", line 1, in <module>
+    str[20]
+TypeError: 'type' object is not subscriptable
+
+
+But there is an important detail: strings are immutable as to change by index. It is not possible to make the following attempt:
+
+
+>>> str1[0]="F"
+Traceback (most recent call last):
+File "<pyshell#26>", line 1, in <module>
+    [str1[0]="F"]
+TypeError: 'str' object does not support item assignment
+
+
+Note that the code has an error message.
+Heads up
+
+Always read the error messages generated by the Python language, which show the exact position of the problem and can help you a lot in building programs.
+
+
+     
+iterate on strings
+
+
+
+Just like an array or a list, we can iterate over the string with the for command:
+
+
+>>> for i in str1:
+        print(i)
+N
+The
+B
+u
+ç
+The
+d
+The
+no
+The
+s
+The
+r
+
+
+You can also slice the string:
+
+
+>>> str1[0:5]
+'Nabuc'
+>>> str1[:5]
+['Nabuc']
+>>> str1[5:]
+'Odorous'
+>>> str1[-1]
+'r'
+>>> str1[:]
+'Nebuchadnezzar'
+
+
+     
+Check if a character is in the string
+
+
+
+>>> 'f' in str1
+false
+>>> 'n' in str1
+true
+
+
+     
+Identify string size
+
+
+
+>>> len(str1)
+13
+
+
+     
+Convert string to uppercase or lowercase
+
+
+
+>>> str1.upper()
+'NEBUCODONOSOR'
+>>> str1.lower()
+'nebuchadnezzar'
+
+
+     
+Convert a number to a string
+
+
+
+>>> x = 666
+>>> type(x)
+<class 'int'>
+>>> x1 = str(x)
+>>> type(x1)
+<class 'str'>
+
+
+     
+Check if the string contains non-alphabetic characters
+
+
+
+>>> str1.isalpha()
+true
+>>> str1="Nebuchadnezzar123"
+>>> str1.isalpha()
+false
+
+
+     
+Remove blank spaces at the beginning and end of the string
+
+
+
+This method is very useful, but it doesn't modify the string content:
+
+
+>>> str2 = " Nebuchadnezzar "
+>>> str2
+'Nebuchadnezzar'
+>>> str2.strip()
+'Nebuchadnezzar'
+
+
+     
+Join each string item using a specified delimiter
+
+
+
+As with strip(), the method will not change the string:
+
+
+>>> str2
+'Nebuchadnezzar'
+>>> "-".join(str2)
+'N-a-b-u-c-o-d-o-n-o-s-o-r'
+
+
+There are many other ways to format and manipulate strings, as well as to treat your characters together or singly. The idea here is that you can basically use them in your programs and do these tasks.
+
+But be sure to study, research and explore the possibilities.
+
+Exercises
+
+Analyze the following string:
+
+str = “Watercolor of Brazil”
+
+Note that there are spaces at the beginning and end. How would you go about permanently stripping whitespace from the string str?
+str = str.strip()
+Check the CORRECT option:
+
+
+a) When we open a file for reading, if it doesn't exist, an error occurs.
+
+
+b) When we open a file for reading, if it doesn't exist, a new one is created.
+
+
+c) When we open a file for writing, if it exists, it is overwritten with the new one.
+
+
+d) All of the above statements are valid. TRUE
+
+
+e) N.R.A.
+
+ALL TRUE 
+To read just two characters from an object of type file (file), we use:
+
+
+a) read file(2)   TRUE 
+
+
+b) file.read()
+
+
+c) file.readline()
+
+
+d) file readlines
+
+
+e) open file(2)
+
+The center() method centers strings into a string of a given width. Based on this explanation and our brief study of the subject, please review the following code:
+
+str='python'
+print (str.center(15,'*'))
+
+What will be printed?
+
+
+a) ********python*******
+
+
+b) ****python*****
+
+
+c) *****python****   TRUE 
+
+
+d) ********python*******
+
+
+e) N.R.A.
+
+Analyze the following code and observe the application of the count() method:
+
+str='abababadaadbbaccabc'
+print (str.count('ab',-17,-1))
+
+What will be printed?
+
+
+a) 4
+
+
+b) 2
+
+
+c)3   TRUE
+
+
+d) 5
+
+
+e) 6
