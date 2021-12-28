@@ -232,3 +232,325 @@ For ease of understanding, suppose that this list only contains telephone number
 
 The list in question can be represented like this:
 
+keys-name     values-telephones 
+'felicia'  1111-2222
+'brita' 22213321, 33223333
+'pissa' 4444-4441 
+'carla' 44445541, 77774545
+'clotilde' 33339999, 88883333, 88883434
+
+Before starting to develop the code, it is important that the programmer think about the architecture of the data structures.
+
+In a phone list, it is clear where we are going to access the data (keys) and what the content is (phones). However, in more complex situations, we recommend to plan properly what will be developed.
+
+
+As we've done this before, let's go to the code, following these steps:
+1. CREATE THE DICTIONARY
+Let's call it “contacts”:
+
+
+>>> contacts={}
+>>> contacts
+{}
+
+
+We create the lists with square brackets “[“ and “]” and the tuples with parentheses “(“ and “)”. Dictionaries are created with braces “{“ and “}”.
+
+2. INSERT DATA IN THE DICTIONARY
+Now, let's start populating our dictionary by entering a key-value pair:
+
+
+>>> contacts["Felix"]=["1111-2222"] → creating a key-value pair
+>>> contacts
+{'Felix': ['1111-2222']} → dictionary content
+
+
+We can also do this using a list as a value:
+
+
+>>> tel_brito = ["2221-3321","3322-3333"]
+>>> contacts["Brito"]=tel_brito
+>>> contacts
+{'Felix': ['1111-2222'], 'Brito': ['2221-3321', '3322-3333']}
+
+
+Here, we create a list called tel_brito and assign the values ​​to it (two phones). We insert the list in the “Brito” key and then show the dictionary.
+
+Let's keep inserting to match the initial figure:
+
+
+>>> contacts["Piazza"]=["4444-4441"]
+>>> contacts["Carlos Alberto"] = ["4444-5541","7777-4545"]
+>>> tel_clodoaldo = ["3333-9999","8888-3333","8888-3434"]
+>>> contacts["Clodoaldo"]=tel_clodoaldo
+>>> contacts
+{'Felix': ['1111-2222'], 'Brito': ['2221-3321', '3322-3333'], 'Piazza':
+['4444-4441'], 'Carlos Alberto': ['4444-5541', '7777-4545'], 'Clodoaldo':
+['3333-9999', '8888-3333', '8888-3434']}
+
+
+So our list is complete, identical to the picture we used in our little planning. Note that each key-value pair has a standard format, in which there is the key in quotes, a colon (“:”), and then its value (in this case, a phone list).
+3. ACCESS DATA IN THE DICTIONARY
+Now, let's do some operations on the dictionary, always using the key:
+
+
+>>> contacts["Felix"] → simpler access mode
+['1111-2222']
+>>> tel_capitao = contacts["Carlos Alberto"] → we created a variable to receive
+>>> tel_capitao → the contents of a key
+['4444-5541', '7777-4545']
+4. CHANGE THE CONTENT OF ANY KEY IN THE DICTIONARY
+Now, let's do some operations on the dictionary, always using the key:
+
+
+>>> contacts["Felix"]
+['1111-2222']
+>>> contacts["Felix"] = ["9999-1010"]
+>>> contacts["Felix"]
+['9999-1010']
+
+5. ORDER THE DICTIONARY
+For this, there is no sort() method like in lists. After all, it doesn't make much sense to store dictionary data in an orderly fashion. To be neatly stored, we need to enter them that way. You can do this in a program, but you don't need to save them in order.
+
+Behind the dictionary is the concept of a hash table: a very powerful data structure whose order of elements is not essential but purposeful.
+
+An alternative is to sort a list by keys and access the values ​​in the order of that list. Let's look at some methods for this.
+Methods for Sorting Dictionaries
+     
+keys() method
+
+
+Allows you to identify the keys of a dictionary:
+
+
+>>> contacts.keys()
+dict_keys(['Felix', 'Brito', 'Piazza', 'Carlos Alberto', 'Clodoaldo'])
+
+     
+values() method
+
+
+Allows you to view the stored values:
+
+
+dict_values([['9999-1010'], ['2221-3321', '3322-3333'], ['4444-4441'], ['4444-5541', '7777-4545'],
+['3333-9999', '8888-3333', '8888-3434']])
+
+
+In both the keys() and values() method, two lists are returned, and we can use them in our programs.
+
+     
+get() method
+
+
+Allows you to get the content associated with the key. If the key does not exist, the associated value will be returned. But if the value is not passed, get calls to non-existent keys will return a value named None (“nothing”).
+
+See an example:
+
+
+>>> contacts
+{'Felix': ['9999-1010'], 'Brito': ['2221-3321', '3322-3333'], 'Piazza': ['4444-4441'], 'Carlos Alberto':
+['4444-5541', '7777-4545'], 'Clodoaldo': ['3333-9999', '8888-3333', '8888-3434']}
+>>> contacts.get('Brito')
+['2221-3321', '3322-3333'] → showed the contacts of the ‘Brito’ switch
+>>>contacts.get('Skin')
+None → there is no value stored for the ‘Skin’ key
+>>> contacts.get('Rivelino')
+None
+>>> contacts.get('Piazza')
+['4444-4441']
+>>>
+
+     
+method in
+
+
+Lets you check if a key belongs to a dictionary:
+
+
+>>> "Piazza" in contacts
+True → The key “Piazza” exists in the dictionary
+>>> "Pelé" in contacts
+False → The key “Pelé” does not exist in the dictionary
+
+     
+items() method
+
+
+Allows you to return elements in the form of tuples:
+
+
+>>> contacts.items()
+dict_items([('Felix', ['9999-1010']), ('Brito', ['2221-3321', '3322-3333']), ('Piazza', ['4444-4441']) ,
+('Carlos Alberto', ['4444-5541', '7777-4545']), ('Clodoaldo', ['3333-9999', '8888-3333', '8888-3434'])])
+
+     
+| copy() method
+
+
+Allows you to copy a dictionary:
+
+
+>>> contacts
+{'Felix': ['9999-1010'], 'Brito': ['2221-3321', '3322-3333'], 'Piazza': ['4444-4441'], 'Carlos Alberto':
+['4444-5541', '7777-4545'], 'Clodoaldo': ['3333-9999', '8888-3333', '8888-3434']}
+>>> players = contacts.copy()
+>>> players
+{'Felix': ['9999-1010'], 'Brito': ['2221-3321', '3322-3333'], 'Piazza': ['4444-4441'], 'Carlos Alberto':
+['4444-5541', '7777-4545'], 'Clodoaldo': ['3333-9999', '8888-3333', '8888-3434']}
+
+
+Now, there is a dictionary called “players” with the same content as “contacts”.
+clear() method
+
+
+Allows you to delete all dictionary elements:
+
+
+>>> contacts.clear()
+>>> contacts
+{}
+
+Exercise
+
+Review the following code:
+
+init_tuple = ()
+print (init_tuple.__len__())
+
+What will be printed on it?
+
+
+a) None
+
+
+b) 1
+
+
+c) 0   TRUE 
+
+
+d) -1
+
+
+e) Error! An exception will occur.
+
+Other ways to create dictionaries
+
+We can also create a dictionary in other ways. One of them is the dict() method, which can take two parameters:
+
+tuple lists
+
+Each contains a key and a value.
+
+
+Item Sequence
+
+In key-value format.
+
+
+
+See how it works in practice:
+
+
+>>> shirts = dict([(7,"Jairzinho"),(9,"Tostao"),(10,"Skin"),(11,"Rivelino")])
+>>> shirts[7]
+'Jairzinho'
+>>> shirts[10]
+'Skin'
+
+
+Here, we create four tuples: (7,"Jairzinho"), (9,"Tostao"), (10,"Skin"), (11,"Rivelino").
+
+Each contains a key-value pair:
+
+Key
+
+Player's shirt number.
+
+
+Value
+
+Player's name.
+
+
+
+In this case, we use tuples, but we could have done the same process with lists.
+
+Using the fromkeys(list,value) method, it is possible to create a dictionary, whose keys are the elements of a list, and whose values ​​are all equal to a certain value. If the value is not specified, the default is None.
+
+     
+| Example 1
+
+
+
+>>> {}.fromkeys([16,4,2,3])
+{16: None, 4: None, 2: None, 3: None}
+
+
+Here, we create a dictionary with keys 16,4,2,3 belonging to a list. We don't set any value to them. Therefore, its content will be None, as per specification.
+Example 2
+
+
+
+Now, let's improve on the previous example:
+
+
+>>> {}.fromkeys([16,4,2,3],"defence")
+{1: 'defence', 4: 'defence', 2: 'defence', 3: 'defence'}
+
+
+Here, we create a dictionary with keys 1,4,2,3 with the value “defence”. It would be interesting to assign this dictionary to a variable and use it in a program or script.
+Heads up
+
+The Python language has different ways of combining these features to create more powerful programs.
+
+Activities
+
+1. Our DNA is composed of nucleotides that contain nitrogenous bases, represented by four letters:
+
+A = adenine;
+C = cytosine;
+T = thymine;
+G = guanine.
+
+Consider the DNA sequence shown by a tuple:
+
+"AATCGGGTTAATGCAATTCG"
+
+DNA = ('a','a','t', 'c', 'g', 'g', 'g', 't', 't', 'a', 'a', 't' , 'g', 'c', 'a', 'a', 't', 't', 'c', 'g')
+
+Now, make a Python program or script to identify the amount of thymines (T) that exist in this sequence.
+>>> dna = ('a','a','t','c','g','g','g','t','t','a','a','t','g','c','a','a','t','t','c','g')
+>>> t = 0
+>>> for i in dna:
+        if i=='t':
+                t=t+1
+>>> t
+6
+
+
+Using the same DNA sequence, make a program or script to count each base.
+
+>>> t=0
+>>> c=0
+>>> g=0
+>>> a=0
+>>> for i in dna:
+        if i=='a':
+                a=a+1
+        elif i=='t':
+                t=t+1
+        elif i=='c':
+                c=c+1
+        else:
+                g=g+1
+>>> a
+6
+>>> t
+6
+>>> c
+3
+>>> g
+5
+
