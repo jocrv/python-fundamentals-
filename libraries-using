@@ -1,0 +1,357 @@
+10
+Python predefined libraries
+Introduction
+Normally, when we use a program, we need features that go beyond the basics.
+
+For example, to assemble a spreadsheet in Excel, in the Statistics field, we need to know Solver, in addition to statistical functions that are hidden in the software. An expert in the field knows how to look for them and use them.
+
+In programming languages, it's not all that different. Java has its standard and extended library. C#, PHP and Python all have a very powerful standard library, which you can extend with your own modules.
+
+Imagine that, after creating the functions, classes, and programs, you forgot to save your work. In the next session of IDLE, everything will then be lost. In Python, the modules feature helps us resolve the issue.
+
+The company that uses this language employs the modules to separate the service and its projects into functional, organized code units.
+
+In this class, we'll learn how to create modules and use predefined ones, as well as develop packages and find out how they behave.
+
+Good studies.
+Modules
+
+A module is a file that contains Python code, in which you can find definitions of classes, functions or even a sequence of commands. There is usually a .py extension associated with this file.
+
+The programs that we made before and that were saved are, in a way, modules. The difference between the two is more semantic than syntactic, as we don't organize the files and their content to work as modules.
+
+
+Let's learn how to create one?
+
+
+
+Imagine that you are involved in a project related to the field of transport. Often you will need to calculate:
+Distances
+
+
+shipping values
+
+
+Taxes with note
+
+What to do?
+ “Classes” “transportes.py”.
+You can create one or more classes, package them in a .py file and call it “transports.py”. Your module is ready!
+
+
+
+The file could have the following structure:
+
+
+# file: transports.py
+def calculate_shipping():
+       #function code
+def calculate_tax():
+       #function code
+def distance():
+       #function code
+
+
+In this example, the file has three functions:
+
+• calculate_shipping();
+• calculate_tax();
+• distance().
+
+
+
+There could be more functions, class definitions and even executable blocks.
+
+To use the module in your programs or within IDLE, use the import command, just as we did in the previous lesson with the calculator program.
+
+
+See an example:
+import transport
+# in this case we are importing EVERYTHING inside the module
+from transport import distance
+# in this case, from the transports.py module we will only import the distance() function, the other
+# will not be imported
+from import transports *
+# in this case, everything in the module matters
+
+
+
+This example is pretty self-explanatory, but there is a detail in the last import form: when we use the asterisk symbol (“*”), everything defined inside the module will be imported EXCEPT for names that start with the underscore character (“ _”). It is not very common to use the asterisk (“*”).
+
+Next, learn how to apply the function of a module:
+>>> transport.distance()
+# put the module name and the resource you want
+# You can also assign a variable, like this:
+>>> dist = transport.distance()
+>>> dist
+
+
+
+To find out the names that exist inside a module, use the dir() function:
+
+
+>>> dir(s)
+['DirEntry', 'F_OK', 'MutableMapping', 'O_APPEND', 'O_BINARY', 'O_CREAT', 'O_EXCL', 'O_NOINHERIT', 'O_RANDOM', 'O_RDONLY', 'O_RDWR', 'O_SEQUENTIAL',
+'O_SHORT_LIVED', 'O_TEMPORARY', 'O_TEXT', 'O_TRUNC', 'O_WRONLY', 'P_DETACH', 'P_NOWAIT', 'P_NOWAITO', 'P_OVERLAY', 'P_WAIT', 'PathLike', 'R_OK_CUR', 'SEEK_ ',
+'SEEK_END', 'SEEK_SET', 'TMP_MAX', 'W_OK', 'X_OK', '_Environ', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader_name_', '__ ',
+'__package__', '__spec__', '_execvpe', '_exists', '_exit', '_fspath', '_get_exports_list', '_putenv', '_unsetenv', '_wrap_close', 'abc', 'abort', 'access ',
+'altsep', 'chdir', 'chmod', 'close', 'closerange', 'cpu_count', 'curdir', 'defpath', 'device_encoding', 'devnull', 'dup', 'dup2', 'environ ', 'errno', 'error',
+'execl', 'execle', 'execlp', 'execlpe', 'execv', 'execve', 'execvp', 'execvpe', 'extsep', 'fdopen', 'fsdecode', 'fsencode', 'fspath ', 'fstat', 'fsync',
+'ftruncate', 'get_exec_path', 'get_handle_inheritable', 'get_inheritable', 'get_terminal_size', 'getcwd', 'getcwdb', 'getenv', 'getlogin', 'getpid', 'getppid',
+'isatty', 'kill', 'linesep', 'link', 'listdir', 'lseek', 'lstat', 'makedirs', 'mkdir', 'name', 'open', 'pardir', 'path ', 'pathsep', 'pipe', 'popen',
+'putenv', 'read', 'readlink', 'remove', 'removedirs', 'rename', 'renames', 'replace', 'rmdir', 'scandir', 'sep', 'set_handle_inheritable', 'set_inheritable' ',
+'spawnl', 'spawnle', 'spawnv', 'spawnve', 'st', 'startfile', 'stat', 'stat_float_times', 'stat_result', 'statvfs_result', 'strerror', 'supports_bytes_environ',
+'supports_dir_fd', 'supports_effective_ids', 'supports_fd', 'supports_follow_symlinks', 'symlink', 'sys', 'system', 'terminal_size', 'times', 'times_result',
+'truncate', 'umask', 'uname_result', 'unlink', 'urandom', 'utime', 'waitpid', 'walk', 'write']
+
+packages
+
+Package is a kind of collection of modules.
+
+In the carrier example, we can create packages separated by company sector or by an area of ​​that sector. It all depends, again, on the architecture of the system you are developing.
+
+
+Understanding modules and packages is essential for you to discover the numerous frameworks that exist in Python: for web programming, desktop applications and even mobile devices.
+
+
+
+Modules and packages serve to organize our work and projects. The big fundamental physical difference between the two is simple: modules are organized into files, packages are organized into folders.
+Also, in packages, we have to include a special file (__init__.py), which makes the Python interpreter identify the packages being used. When the Python interpreter finds such a file in a folder, it becomes a package.
+
+Note the following structure:
+
+financial                                  _init_.py
+transport                                  eletronic_knowledge.py
+accounts                                   freight 
+payable                                    routes 
+accounts receivable
+logistics 
+
+Each of the folders (transport, financial, accounts_to_pay, accounts_to_receive, logistics) contains an __init__.py file – including the root. So here we created a package structure for our transportation project.
+
+Let's insert some example content into the freight.py file:
+
+
+# -*- coding: utf-8 -*-
+test def():
+       print("Testing the file!!!")
+
+Heads up
+
+Right on the first line, we put some strange code (coding: utf-8-). You will find it in several examples on the internet, as it is used to put the source code encoding in the file in UTF-8. In this way, accents and special characters that may appear in the code are correctly interpreted.
+
+
+Now suppose your DOS Console is in the following folder:
+
+Prompt command
+
+D:\>
+The folder “transports” was created inside the folder “D:\projs”. Then we have:
+
+D:\projs>python
+Python 3.6.2 
+Type "help", "copyright", "credits" or "license" for more information
+import sys
+import transports 
+dir()
+['___annotations___', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'sys', 'transports']
+
+One level above the “transports” folder, we call the Python interpreter.
+
+Three commands were entered:
+IMPORT SYS
+As we already know, we are importing this module and all its resources into the current interpreter session.
+SYS.PATH.APPEND(‘D:\PROJS\TRANSPORTES’)
+This command causes the “transports” package we created earlier to be added to our session. Thus, the test() function can be used. Therefore, every time you use a package created by you, this procedure must be adopted.
+
+Again, a note about software architecture here: when you're involved in a Python project, it's quite likely that you'll use some framework to help you develop.
+
+The most used frameworks have mechanisms to make this type of import and correct the path of your project.
+
+DIR()
+Used to list the modules available in the open interpreter session. Note that now “transports” is on the list.
+The package has already been read, now we want to use the test() function present inside the freight.py module. We can do this in a few ways:
+
+
+Importing the package and module
+
+                                                >>>import transport.logistics.freight
+                                                >>>transports.logistica.frete.test()
+                                                Testing the file!!!
+
+Through from, importing the module
+
+                                                >>>from transport.logistics import freight
+                                                >>>shipping.test()
+                                                Testing the file!!!
+
+Through from, importing the function
+
+                                                >>>from transport.logistics.frete import test
+                                                >>>test()
+                                                Testing the file!!!
+
+This is very useful and makes your programs reusable. But we need to be careful. Again, note the sequence of commands:
+
+D:\projs>python
+Python 3.6.2 
+Type "help", "copyright", "credits" or "license" for more information
+import sys
+import transports 
+dir()
+['___annotations___', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'sys', 'transports']
+
+We run the Python interpreter again, opening a new session and importing the “transports” package. We use dir() to list the package names currently available for our use.
+
+Check which “transport” is on the list. And that's where we must be careful. We might think that by simply importing the “transports” package we can use the modules and sub-modules it contains, but that's not quite the case.
+
+Remember that we created the empty __init__.py files and that we can initialize them to include the modules we want. Look:
+
+D:\projs>python
+Python 3.6.2 
+Type "help", "copyright", "credits" or "license" for more information
+import sys
+import transports 
+dir()
+['___annotations___', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'sys', 'transports']
+transportas.logistics
+Traceback (most recent call last):
+File "<stdin>", line 1 in <module>
+AttributeError: module 'transports' has no attribute 'logistics'
+
+We tried to use the “logistics” module and it didn't work. How can we solve this problem?
+
+The best way to solve this is to employ the __all__ directive inside the __init__.py files of our framework.
+
+Rather than importing modules separately, we can apply this directive and through it import what is below the framework for better use.
+
+For example, in the root __init__.py file, we can include the following:
+
+
+__all__ = ['logistics', 'financial']
+
+
+Note that we have inserted the modules below the root here. This can be done on every __init__.py of every folder, changing only the subfolders. In the case of __init__.py from the logistics folder, we have:
+
+
+__all__ = ['electronic_knowledge', 'shipping','routes']
+
+Heads up
+
+“electronic_knowledge”, “freight” and “routes” are subfolders (submodules) of “logistics”.
+
+
+In this way, the problem is solved as follows:
+
+D:\projs>python
+Python 3.6.2 
+Type "help", "copyright", "credits" or "license" for more information
+import sys
+import transports 
+dir()
+['___annotations___', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'eletronic knowledge', 'transports', 'routes']
+freight.test()
+Testing the file!!!
+
+Note that we now correctly use the import *. Remember: we can believe that from transports import * does the same, but that won't be possible, because, in this module, we import “logistics” and “financial”, and not the “freight” module.
+
+Standard library
+
+
+
+Now that we have a quick look at the Python package search and import mechanism, let's briefly cover the standard library.
+
+The standard library is distributed with Python and has hundreds of modules that provide tools for interacting with the operating system, with the Python interpreter itself, with the internet, etc.
+That's why this language has the slogan:
+
+Batteries included = Comes with batteries
+
+
+
+To discover such hundreds of modules, you already know the command: dir(), where we pass the module name as a parameter. We've already used some of these functions throughout the lessons, especially when it comes to strings, which we call regular expressions by default.
+
+Know more
+
+If we use a pattern in which the entire string can only be written in uppercase or lowercase letters, it will be [A-z]. We normally use regular expressions in input validations.
+
+Get to know Python expressions and their specific modules.
+
+
+Below, we list the main types of modules that the standard library has:
+
+
+
+
+• Text;
+• Data structures;
+• Algorithms;
+• Date and time;
+• Mathematical modules;
+• File system;
+• Data persistence;
+• Data compression and archiving;
+• Cryptography;
+• Processes and threads;
+
+
+• Networking;
+• Internet;
+• Email;
+• Program building blocks;
+• Internationalization and localization;
+• Tools for the developer;
+• Runtime functions;
+• Language tools;
+• Modules and packages.
+
+
+The use of these modules varies by project. The important thing is that you know that there are a lot of ready-made ideas in Python.
+
+For example, if you need a program that interfaces with SQLite, there are specific modules for that database. Therefore, it is not necessary to create access procedures or drivers for SQLite. This has already been done and is available to us.
+
+For this reason, it is very important that you browse and explore the contents of the standard library.
+
+proposed activity
+
+Search for the modules needed to solve the following programs:
+
+a) Program that displays the Python version you are using.
+import sys
+print("Python version:")
+print (sys.version)
+
+Python program that accepts the radius of a circle. Calculate your area.
+
+
+
+from math import pi
+r = float(input("Enter the radius of the circle:"))
+print ("The area of ​​the circle of radius " + str(r) + " is: " + str(pi * r**2))
+
+Program that shows the current date and time.
+
+
+
+import datetime
+now = datetime.datetime.now()
+print ("Current date and time: ")
+print (now.strftime("%Y-%m-%d %H:%M:%S"))
+
+Program that shows the calendar of a month and year read from the user.
+
+
+
+import calendar
+a = int(input("Enter the year:"))
+m = int(input("Enter the month:"))
+print(calendar.month(y, m))
+
+Program that calculates the distance of two points (4.0) and (6.6). Remember analytic geometry.
+
+
+
+import math
+p1 = [4.0]
+p2 = [6, 6]
+dist = math.sqrt( ((p1[0]-p2[0])**2)+((p1[1]-p2[1])**2) )
+print(dist)
